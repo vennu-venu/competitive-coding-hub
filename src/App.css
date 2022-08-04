@@ -1,4 +1,42 @@
 .head-title {
-    text-align: center;
-    color: #308d50;
+    font-size: 5rem;
+    font-weight: 200;
+    margin: auto;
+}
+.custom-letter {
+    font-size: 6rem;
+}
+.front-page {
+    display: flex;
+    background-color: #308d4663;
+    color: darkgrey;
+}
+.button-area {
+    width: 30%;
+    display: flex;
+    flex: start;
+    align-items: center;
+}
+.login-btn {
+    background-color: transparent;
+    border: 2px solid darkgray;
+    color: darkgrey;
+    padding: 16px 48px;
+    font-size: 1.4rem;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.login-btn:hover {
+    transform: scale(1.1);
+    transition-duration: 0.25s;
+}
+.quote {
+    background-color: rgba(75, 75, 75, 0.4);
+    display: flex;
+    justify-content: center;
+}
+.quote p {
+    margin: 20px;
+    color: #308d46;
+    font-size: 1.1rem;
 }
