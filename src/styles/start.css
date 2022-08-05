@@ -54,7 +54,7 @@
     margin: 20px;
     color: darkgray;
     font-size: 1.2rem;
-    font-weight: 200;
+    font-weight: 400;
   }
   .o-item {
     height: 80vh;
@@ -107,14 +107,12 @@
     width: 50%;
   }
   .o-idea:hover {
-    color: #0b4018;
     font-weight: bold;
-    transition-duration: 0.25s;
+    transition-duration: 0.2s;
   }
   .e-idea:hover {
-    color: black;
     font-weight: bold;
-    transition-duration: 0.25s;
+    transition-duration: 0.2s
   }
   .head-title:hover {
     border-bottom: 4px solid darkgrey;
