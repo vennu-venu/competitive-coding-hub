@@ -109,6 +109,7 @@
   .o-idea:hover {
     font-weight: bold;
     transition-duration: 0.2s;
+    color:red;
   }
   .e-idea:hover {
     font-weight: bold;
