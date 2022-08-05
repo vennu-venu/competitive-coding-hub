@@ -86,7 +86,8 @@ function Start() {
           className="fullwidth"
           type="password"
           name="cpassword"
-          pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+          pattern={user.password}
+          title="passwords don't match"
           value={user.cpassword}
           onChange={handleInput}
           placeholder="Confirm Password"
