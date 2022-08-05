@@ -67,7 +67,7 @@
   .o-idea {
     font-size: 5rem;
     display: flex;
-    justify-content: start;
+    flex: start;
     align-items: center;
     width: 30%;
   }
@@ -109,7 +109,6 @@
   .o-idea:hover {
     font-weight: bold;
     transition-duration: 0.2s;
-    color:red;
   }
   .e-idea:hover {
     font-weight: bold;
