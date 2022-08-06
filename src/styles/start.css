@@ -68,7 +68,7 @@
   .o-idea {
     font-size: 5rem;
     display: flex;
-    justify-content: start;
+    flex: start;
     align-items: center;
     width: 30%;
   }
