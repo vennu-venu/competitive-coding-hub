@@ -17,12 +17,12 @@ function Start() {
     value = e.target.value;
     setUser({ ...user, [name]: value });
   };
-
-
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(user);
   };
+
   return (
     <div className="body-componant">
       <form onSubmit={handleSubmit}>
