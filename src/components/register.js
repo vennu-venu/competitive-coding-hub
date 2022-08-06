@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../styles/register.css";
 
-function Start() {
+function Register() {
   const [user, setUser] = useState({
     first_name: "",
     last_name: "",
@@ -100,4 +100,4 @@ function Start() {
   );
 }
 
-export default Start;
+export default Register;
