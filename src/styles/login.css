@@ -30,6 +30,11 @@
   font-family: Verdana, Geneva, Tahoma, sans-serif
 }
 
+.login-code:hover {
+  padding: 120px;
+  transition-duration: 00.25s;
+}
+
 .login-form {
   background-color: transparent;
   display: flex;
