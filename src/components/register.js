@@ -116,7 +116,7 @@ function Register() {
         </form>
         <div>
           <p className="register-had-account">
-            Already had account ?<Link className="login-opt" to="/login">Login</Link>
+            Already have an account ?<Link className="login-opt" to="/login">Login</Link>
           </p>
         </div>
       </div>
