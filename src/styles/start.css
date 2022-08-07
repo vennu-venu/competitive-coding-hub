@@ -36,10 +36,11 @@
     cursor: pointer;
     margin-top: 20px;
     text-decoration: none;
+    width: 50%;
   }
   .login-btn:hover {
     background-color: darkgrey;
-    color: #0b4018;;
+    color: #0b4018;
     transform: scale(1.1);
     transition-duration: 0.25s;
   }
