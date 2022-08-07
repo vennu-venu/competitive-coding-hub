@@ -1,7 +1,8 @@
 import "./App.css";
 import Start from "./components/start";
-import auth from "./firebase-config";
-import { createUserWithEmailAndPassword } from "firebase/auth"
+import Login from "./components/login";
+import Register from "./components/register";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   
@@ -17,10 +18,11 @@ function App() {
 
   return (
     <div>
-      <button onClick={handleRegister} className="btn">
-        Add
-      </button>
-      <Start />
+      <Routes>
+        <Route path="/" element={<Start />}></Route>
+        <Route path="/login" element={<Login />}></Route>
+        <Route path="/register" element={<Register />}></Route>
+      </Routes>
     </div>
   );
 }

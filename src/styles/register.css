@@ -1,0 +1,112 @@
+.register-main {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+}
+
+.register-left{
+  padding: 64px 0px;
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(50, 50, 50, 0.64);
+}
+
+.register-right {
+  padding: 64px 0px;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  padding-left: 50px;
+}
+
+.register-code {
+  background-color: #00000044;
+  border-left: 4px solid #308d50;
+  padding: 100px;
+  border-radius: 10px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif
+}
+
+.register-code:hover {
+  padding: 120px;
+  transition-duration: 00.25s;
+}
+
+.register-form {
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
+.register-title {
+  font-size: 3rem;
+  font-weight: 400;
+}
+
+.register-custom-letter {
+  font-size: 4rem;
+  color: #308d50;
+  font-weight: 600;
+}
+
+.register-inp {
+  background-color: transparent;
+  border: 2px solid rgb(70, 70, 70);
+  width: 50%;
+  padding: 12px 16px;
+  font-size: 1rem;
+  color: whitesmoke;
+  border-radius: 20px;
+}
+
+.register-inp:focus {
+  outline: none;
+  border: 2px solid #308d50;
+  width: 60%;
+  transition-duration: 00.25s;
+}
+
+.register-button {
+  background-color: transparent;
+  border: 2px solid rgb(70, 70, 70);
+  width: 25%;
+  padding: 10px 16px;
+  font-size: 1.1rem;
+  border-radius: 20px;
+  color: whitesmoke;
+  cursor: pointer;
+}
+
+.register-button:hover {
+  width: 40%;
+  background-color: whitesmoke;
+  color: #308d50;
+  font-weight: 600;
+  transition-duration: 00.25s;
+}
+
+.intend {
+  margin-left: 20px;
+}
+
+.comment {
+  font-style: italic;
+  color: rgb(124, 124, 124);
+}
+
+.login-had-account {
+  font-size: 0.9rem;
+  margin-left: 10px;
+}
+
+.login-opt {
+  text-decoration: none;
+  color: #308d50;
+  font-size: 1rem;
+  margin-left: 10px;
+  font-style: italic;
+}
