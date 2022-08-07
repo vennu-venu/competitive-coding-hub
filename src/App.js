@@ -1,24 +1,25 @@
 import "./App.css";
 import Start from "./components/start";
-import { useAuth } from "./contexts/auth-context"
+import auth from "./firebase-config";
+import { createUserWithEmailAndPassword } from "firebase/auth"
 
 function App() {
-
-  const { signup } = useAuth();
-
-  async function handleSignUp(e) {
-    e.preventDefault();
+  
+  const handleRegister = async() => {
     try {
-      // await signup((Math.random() + 1).toString(36).substring(7), (Math.random() + 1).toString(36).substring(7));
-      await signup("Ram", "1234");
-    } catch {
-      console.log("Error occurred");
+      const user = await createUserWithEmailAndPassword(auth, "user@gmail.com", "pwd@1234");
+      console.log(user);
+    }
+    catch(error) {
+      console.log("Error in Sign Up: ", error.message);
     }
   }
 
   return (
     <div>
-      <button onClick={handleSignUp} className="btn">Add</button>
+      <button onClick={handleRegister} className="btn">
+        Add
+      </button>
       <Start />
     </div>
   );
