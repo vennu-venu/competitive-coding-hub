@@ -1,0 +1,24 @@
+.welcome {
+    font-weight: 400;
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 100px;
+}
+
+.sign-out-btn {
+    display: block;
+    margin: 40px auto;
+    background-color: transparent;
+    padding: 12px 20px;
+    border-radius: 20px;
+    border: 2px solid whitesmoke;
+    color: white;
+    cursor: pointer;
+}
+.sign-out-btn:hover {
+    background-color: whitesmoke;
+    color: black;
+    font-weight: 600;
+    transform: scale(1.1);
+    transition-duration: 0.25s;
+}

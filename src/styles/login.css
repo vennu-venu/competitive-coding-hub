@@ -25,13 +25,13 @@
 .login-code {
   background-color: #00000044;
   border-left: 4px solid #308d50;
-  padding: 100px;
+  padding: 60px;
   border-radius: 10px;
   font-family: Verdana, Geneva, Tahoma, sans-serif
 }
 
 .login-code:hover {
-  padding: 120px;
+  padding: 80px;
   transition-duration: 00.25s;
 }
 
@@ -66,13 +66,11 @@
 .login-inp:focus {
   outline: none;
   border: 2px solid #308d50;
-  width: 60%;
   transition-duration: 00.25s;
 }
 
 .login-button {
-  background-color: transparent;
-  border: 2px solid rgb(70, 70, 70);
+  background-color: #308d50;
   width: 25%;
   padding: 10px 16px;
   font-size: 1.1rem;
@@ -83,8 +81,7 @@
 
 .login-button:hover {
   width: 40%;
-  background-color: whitesmoke;
-  color: #308d50;
+  color: whitesmoke;
   font-weight: 600;
   transition-duration: 00.25s;
 }

@@ -1,15 +1,18 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import auth from "../firebase-config";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import "../styles/register.css";
 
 function Register() {
+  const navigate = useNavigate();
+
   let code1 = "// Moto of Competitive Coding Hub";
   let code2 = "if(doubtInCoding == true) {";
   let code3 = "  loginToCCH();";
   let code4 = "  postDoubt();";
   let code5 = "  getSolution();";
   let code6 = "}";
-
   const [user, setUser] = useState({
     first_name: "",
     last_name: "",
@@ -26,9 +29,19 @@ function Register() {
     setUser({ ...user, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(user);
+    try {
+      const userAccount = await createUserWithEmailAndPassword(
+        auth,
+        user.email,
+        user.password
+      );
+      console.log(userAccount);
+      navigate("/home");
+    } catch (error) {
+      console.log("Error in Sign Up: ", error.message);
+    }
   };
 
   return (
@@ -112,11 +125,16 @@ function Register() {
             placeholder="Confirm Password"
             required
           />
-          <button className="register-button" type="submit">Register</button>
+          <button className="register-button" type="submit">
+            Register
+          </button>
         </form>
         <div>
           <p className="register-had-account">
-            Already have an account ?<Link className="login-opt" to="/login">Login</Link>
+            Already have an account ?
+            <Link className="login-opt" to="/login">
+              Login
+            </Link>
           </p>
         </div>
       </div>

@@ -1,37 +1,40 @@
 .register-main {
   display: flex;
   justify-content: center;
-  height: 100%;
 }
 
 .register-left{
-  padding: 64px 0px;
+  height: 100vh;
   width: 60%;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: rgb(50, 50, 50, 0.64);
+  position: sticky;
+  top: 0px;
 }
 
 .register-right {
-  padding: 64px 0px;
+  padding: 20px;
   width: 40%;
   display: flex;
   flex-direction: column;
   align-self: center;
   padding-left: 50px;
+  position: relative;
+  top: -20px;
 }
 
 .register-code {
   background-color: #00000044;
   border-left: 4px solid #308d50;
-  padding: 100px;
+  padding: 60px;
   border-radius: 10px;
   font-family: Verdana, Geneva, Tahoma, sans-serif
 }
 
 .register-code:hover {
-  padding: 120px;
+  padding: 80px;
   transition-duration: 00.25s;
 }
 
@@ -66,13 +69,11 @@
 .register-inp:focus {
   outline: none;
   border: 2px solid #308d50;
-  width: 60%;
   transition-duration: 00.25s;
 }
 
 .register-button {
-  background-color: transparent;
-  border: 2px solid rgb(70, 70, 70);
+  background-color: #308d50;
   width: 25%;
   padding: 10px 16px;
   font-size: 1.1rem;
@@ -83,10 +84,9 @@
 
 .register-button:hover {
   width: 40%;
-  background-color: whitesmoke;
-  color: #308d50;
+  color: whitesmoke;
   font-weight: 600;
-  transition-duration: 00.25s;
+  transition-duration: 0.25s;
 }
 
 .intend {
