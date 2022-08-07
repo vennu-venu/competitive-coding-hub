@@ -108,18 +108,17 @@
   .e-content p {
     width: 50%;
   }
-  .o-idea:hover {
-    font-weight: bold;
+  .o-idea p:hover {
+    border-left: 20px solid #0b4018;
+    padding-left: 10px;
+    padding-bottom: 10px;
     transition-duration: 0.2s;
-    color:red;
   }
-  .e-idea:hover {
-    font-weight: bold;
-    transition-duration: 0.2s
-  }
-  .head-title:hover {
-    border-bottom: 4px solid darkgrey;
-    transition-duration: 0.5s;
+  .e-idea p:hover {
+    border-left: 20px solid black;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    transition-duration: 0.2s;
   }
   .l-1 {
       z-index: 0;
