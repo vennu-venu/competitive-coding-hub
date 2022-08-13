@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import auth from "../firebase-config";
-import { createUserWithEmailAndPassword } from "firebase/auth";
 import "../styles/register.css";
+import "react-notifications/lib/notifications.css";
+import { NotificationManager } from "react-notifications";
+import axios from "axios";
 
 function Register() {
   const navigate = useNavigate();
@@ -32,18 +33,25 @@ function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const userAccount = await createUserWithEmailAndPassword(
-        auth,
-        user.email,
-        user.password
+      const response = await axios.post(
+        "http://localhost:5000/register/create",
+        user
       );
-      console.log(userAccount);
-      navigate("/home");
+
+      if (!response.data.success) {
+        NotificationManager.error(
+          response.data.message,
+          "Couldn't create Account !!",
+          4000
+        );
+      } else {
+        NotificationManager.success(response.data.message);
+        navigate("/home");
+      }
     } catch (error) {
-      console.log("Error in Sign Up: ", error.message);
+      console.log("Error in Register: ", error);
     }
   };
-
   return (
     <div className="register-main">
       <div className="register-left">

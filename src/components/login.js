@@ -1,8 +1,9 @@
 import "../styles/login.css";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import auth from "../firebase-config";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import "react-notifications/lib/notifications.css";
+import { NotificationManager } from "react-notifications";
+import axios from "axios";
 
 function Login() {
   let code1 = "// Moto of Competitive Coding Hub";
@@ -28,15 +29,22 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const userAccount = await signInWithEmailAndPassword(
-        auth,
-        user.email,
-        user.password
+      const response = await axios.post(
+        "http://localhost:5000/login/check",
+        user
       );
-      console.log(userAccount);
-      navigate("/home");
+      if (!response.data.success) {
+        NotificationManager.error(
+          response.data.message,
+          "Unsuccessful Login",
+          4000
+        );
+      } else {
+        NotificationManager.success(response.data.message);
+        navigate("/home");
+      }
     } catch (error) {
-      console.log("Error in Login: ", error.message);
+      console.log("Error in Login: ", error);
     }
   };
 
@@ -57,7 +65,7 @@ function Login() {
           <span className="login-custom-letter">L</span>ogin
         </h1>
 
-        <form className="login-form" action="" method="post">
+        <form className="login-form" onSubmit={handleSubmit}>
           <input
             className="login-inp"
             type="text"
@@ -76,7 +84,9 @@ function Login() {
             placeholder="Password"
             required
           />
-          <input onClick={handleSubmit} className="login-button" type="submit" value="Login" />
+          <button className="login-button" type="submit">
+            Login
+          </button>
         </form>
 
         <div>

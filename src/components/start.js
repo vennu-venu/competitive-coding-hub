@@ -19,7 +19,7 @@ function Start() {
             Platform which can be exclusively used as a means to share the
             doubts related to programming.
           </p>
-          <Link class="login-link" to="/login">
+          <Link className="login-link" to="/login">
             <button className="login-btn">Get Started</button>
           </Link>
         </div>
