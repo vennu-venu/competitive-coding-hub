@@ -1,19 +1,26 @@
 import "../styles/login.css";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "react-notifications/lib/notifications.css";
 import { NotificationManager } from "react-notifications";
 import axios from "axios";
 
 function Login() {
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if(localStorage.getItem("cch-user-token") != null) {
+      navigate("/home");
+    }
+  }, [navigate]);
+
   let code1 = "// Moto of Competitive Coding Hub";
   let code2 = "if(doubtInCoding == true) {";
   let code3 = "  loginToCCH();";
   let code4 = "  postDoubt();";
   let code5 = "  getSolution();";
   let code6 = "}";
-
-  const navigate = useNavigate();
 
   const [user, setUser] = useState({
     email: "",
@@ -41,6 +48,7 @@ function Login() {
         );
       } else {
         NotificationManager.success(response.data.message);
+        localStorage.setItem("cch-user-token", response.data.jwt);
         navigate("/home");
       }
     } catch (error) {

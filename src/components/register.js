@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../styles/register.css";
 import "react-notifications/lib/notifications.css";
@@ -6,7 +6,14 @@ import { NotificationManager } from "react-notifications";
 import axios from "axios";
 
 function Register() {
+
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if(localStorage.getItem("cch-user-token") != null) {
+      navigate("/home");
+    }
+  }, [navigate]);
 
   let code1 = "// Moto of Competitive Coding Hub";
   let code2 = "if(doubtInCoding == true) {";
@@ -46,7 +53,7 @@ function Register() {
         );
       } else {
         NotificationManager.success(response.data.message);
-        navigate("/home");
+        navigate("/login");
       }
     } catch (error) {
       console.log("Error in Register: ", error);

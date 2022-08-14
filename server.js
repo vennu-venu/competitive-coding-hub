@@ -2,7 +2,7 @@
 const exp = require("express");
 const app = exp();
 
-var cors = require('cors');
+var cors = require("cors");
 app.use(cors());
 
 // Import the path module
@@ -11,9 +11,9 @@ const path = require("path");
 // Importing MogoClient
 const mc = require("mongodb").MongoClient;
 
-// Database URL
-const dburl =
-  "mongodb+srv://competitive-coding-hub:c3c3h8@cluster0.lyozsln.mongodb.net/?retryWrites=true&w=majority";
+require("dotenv").config();
+
+const dburl = process.env.DATABASE_URL;
 
 let dbObj; // DB Object declared globally.
 // Connect to MongoDB Atlas
@@ -32,9 +32,11 @@ mc.connect(dburl, { useNewUrlParser: true, useUnifiedTopology: true })
 //Importing Login and Register Apis
 const loginApiRoute = require("./apis/loginApi");
 const registerApiRoute = require("./apis/registerApi");
+const homeApiRoute = require("./apis/tokenVerificationApi");
 
 app.use("/login", loginApiRoute);
 app.use("/register", registerApiRoute);
+app.use("/home", homeApiRoute[0]);
 
 // Handling unavailable path
 app.use((req, res, next) => {

@@ -19,9 +19,9 @@ loginApiRoute.post("/check", async (req, res) => {
     let result = await bcrypt.compare(password, obj.password);
     if (result) {
       let signedToken = await jwt.sign(
-        { username: userCredentialDetails.username },
+        { email: userCredentialDetails.email },
         "cch",
-        { expiresIn: 200 }
+        { expiresIn: "4h" }
       );
       res.send({
         message: "Successful Login !!",
