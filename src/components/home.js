@@ -43,12 +43,27 @@ function Home() {
   };
 
   return (
-    <div>
+    /*<div>
       <h1 className="welcome">Hello {userEmail}</h1>
       <button className="sign-out-btn" onClick={signOut}>
         Sign Out
       </button>
+    </div>*/
+<ul class="topnav">
+  <li><a class="active" href="#home">Competetive Coding Hub</a></li>
+<div className="home-li"> 
+  <li><a href="#home" >Posts</a></li>
+  <li><a href="#news" >My Doubts</a></li>
+  <li class="dropdown"><a href="#contact">Profile</a>
+  <div class="dropdown-content">
+      <a href="#">View Profile</a>
+      <a href="#">Edit Profile</a>
+      <a href="#">Change Password</a>
+      <a href="#">Logout</a>
     </div>
+  </li>
+  </div>
+</ul>
   );
 }
 
