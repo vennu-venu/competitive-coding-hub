@@ -16,20 +16,24 @@ loginApiRoute.post("/check", async (req, res) => {
   if (obj == null) {
     res.send({ message: "Email doesn't exist", success: false });
   } else {
-    let result = await bcrypt.compare(password, obj.password);
-    if (result) {
-      let signedToken = await jwt.sign(
-        { email: userCredentialDetails.email },
-        "cch",
-        { expiresIn: "4h" }
-      );
-      res.send({
-        message: "Successful Login !!",
-        success: true,
-        jwt: signedToken,
-      });
+    if (!obj.isVerified) {
+      res.send({ message: "Email has not been verified", success: false });
     } else {
-      res.send({ message: "Wrong Password", success: false });
+      let result = await bcrypt.compare(password, obj.password);
+      if (result) {
+        let signedToken = await jwt.sign(
+          { email: userCredentialDetails.email },
+          "cch",
+          { expiresIn: "4h" }
+        );
+        res.send({
+          message: "Successful Login !!",
+          success: true,
+          jwt: signedToken,
+        });
+      } else {
+        res.send({ message: "Wrong Password", success: false });
+      }
     }
   }
 });

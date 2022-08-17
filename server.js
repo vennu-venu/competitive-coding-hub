@@ -29,13 +29,17 @@ mc.connect(dburl, { useNewUrlParser: true, useUnifiedTopology: true })
     console.log("Error in DB connect ", err);
   });
 
-//Importing Login and Register Apis
+//Importing Apis
 const loginApiRoute = require("./apis/loginApi");
 const registerApiRoute = require("./apis/registerApi");
 const homeApiRoute = require("./apis/tokenVerificationApi");
+const OTPApiRoute = require("./apis/OTPApi");
+const forgotPasswordApiRoute = require("./apis/forgotPasswordApi")
 
 app.use("/login", loginApiRoute);
 app.use("/register", registerApiRoute);
+app.use("/verify-email", OTPApiRoute);
+app.use("/forgot-password", forgotPasswordApiRoute);
 app.use("/home", homeApiRoute[0]);
 
 // Handling unavailable path

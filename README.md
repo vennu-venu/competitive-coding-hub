@@ -79,3 +79,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 4. npm i jsonwebtoken
 5. npm i cros
 6. npm i mongodb
+7. npm i nodemailer
+8. npm i dotenv
+9. npm i nodemon

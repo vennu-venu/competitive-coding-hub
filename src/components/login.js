@@ -6,11 +6,10 @@ import { NotificationManager } from "react-notifications";
 import axios from "axios";
 
 function Login() {
-
   const navigate = useNavigate();
 
   useEffect(() => {
-    if(localStorage.getItem("cch-user-token") != null) {
+    if (localStorage.getItem("cch-user-token") != null) {
       navigate("/home");
     }
   }, [navigate]);
@@ -97,14 +96,22 @@ function Login() {
           </button>
         </form>
 
-        <div>
-          <p className="login-new-user">
+        <div className="user-opt">
+          <p>
             New to Competitive Coding Hub ?
             <Link className="sign-up-opt" to="/register">
               Register
             </Link>
           </p>
         </div>
+
+        <Link className="login-link-text" to="/verify-email">
+          <button className="opt-button">Verify Email</button>
+        </Link>
+
+        <Link className="login-link-text" to="/forgot-password">
+          <button className="opt-button">Forgot Password ? </button>
+        </Link>
       </div>
     </div>
   );
