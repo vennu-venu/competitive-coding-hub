@@ -3,6 +3,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Post from "./post";
 
 function Home() {
   const navigate = useNavigate();
@@ -12,7 +13,44 @@ function Home() {
   const [count2, updateCount2] = useState(200);
   const [count3, updateCount3] = useState(300);
 
-  const list = ["List-1","List-2","List-3","List-4","List-5"]
+  const list = [
+    {
+    id:"1",
+    title:"ABC",
+    postedBy:"Ram",
+    date:"4th dec 2021",
+    replies:"5"
+  },
+  {
+    id:"1",
+    title:"ABC",
+    postedBy:"Ram",
+    date:"4th dec 2021",
+    replies:"5"
+
+  },
+  {
+    id:"1",
+    title:"ABC",
+    postedBy:"Ram",
+    date:"4th dec 2021",
+    replies:"5"
+  },
+  {
+    id:"1",
+    title:"ABC",
+    postedBy:"Ram",
+    date:"4th dec 2021",
+    replies:"5"
+  },
+  {
+    id:"1",
+    title:"ABC",
+    postedBy:"Ram",
+    date:"4th dec 2021",
+    replies:"5"
+  }
+]
 
   useEffect(() => {
     async function verifyToken(tokenObj) {
@@ -90,8 +128,8 @@ function Home() {
       <div className="home-row">
         <div className="home-profile">Profile</div>
         <div className="home-list-group">
-        {list.map((item)=>(
-        <div className="home-list">{item}</div>
+        {list.map((obj)=>(
+        <div className="home-list"><Post {...obj} /></div>
         ))}
       </div>
       </div>

@@ -57,8 +57,6 @@ ul.topnav li.right {float: right;}
   ul.topnav li {float: none;}
 }
 .home-top-cols{
-  padding-top: 15px;
-  padding: 10px;
   width: 50%;
 }
 
@@ -87,16 +85,14 @@ ul.topnav li.right {float: right;}
 .home-row{
   display: flex;
   flex-direction: row;
-  width: 100%;
-  padding: 20px;
 }
 .home-countname{
   color: #308d50;
 }
-.home-search input{
+.home-search-input{
   padding: 20px;
-  width: 10vh;
-  margin-left: 40%;
+  width: 100vh;
+  
 }
 .home-profile{
   width: 10%;
