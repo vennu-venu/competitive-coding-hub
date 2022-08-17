@@ -1,0 +1,23 @@
+.profile-main{
+    background-color: #308d50;
+    width: 70%;
+    color: black;
+    border-radius: 5px;
+    font-family: sans-serif;
+    font-size: large;
+    font-weight: 200;
+}
+
+.profile-icon{
+    padding: 5px;
+    margin-top: 4px;
+}
+
+.profile-username{
+    padding: 5px;
+}
+
+
+.profile-line{
+    color: red;
+}

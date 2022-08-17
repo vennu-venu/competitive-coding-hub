@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { FaSearch } from 'react-icons/fa';
 import axios from "axios";
 import Post from "./post";
+import Profile from "./profile";
 
 function Home() {
   const navigate = useNavigate();
@@ -128,8 +129,8 @@ function Home() {
         </div>
       </div>
       <div className="home-row">
-        <div className="home-profile">Profile</div>
-        <div className="home-list-group">
+      <div className="home-profile"><Profile/></div>
+              <div className="home-list-group">
         {list.map((obj)=>( 
         <div className="home-list"><Post {...obj} /></div>
         ))}
