@@ -28,7 +28,7 @@ function Register() {
     email: "",
     password: "",
     cpassword: "",
-    isVerfied: false
+    isVerified: false
   });
   let name, value;
 
