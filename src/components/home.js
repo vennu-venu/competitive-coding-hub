@@ -12,7 +12,6 @@ function Home() {
   const [userEmail, setUserEmail] = useState("");
   const [count1, updateCount1] = useState(100);
   const [count2, updateCount2] = useState(200);
-  const [count3, updateCount3] = useState(300);
 
   const list = [
     {
@@ -110,25 +109,22 @@ function Home() {
         </div>
       </ul>
       <div className="home-row">
-        <div className="home-top-cols">
+        <div className="home-counts">
         <div className="home-count1">
           <div className="home-countnumber">{count1}</div>
-          <span className="home-countname">Count-1</span>
+          <span className="home-countname">Doubts</span>
         </div>
         <div className="home-count2">
           <div className="home-countnumber">{count2}</div>
           <span className="home-countname">Count-2</span>
         </div>
-        <div className="home-count3">
-          <div className="home-countnumber">{count3}</div>
-          <span className="home-countname">Count-3</span>
-        </div>
       </div>
-        <div className="home-top-cols">
-          <form>
-            <input className="home-search-input" type="text" placeholder="Search" />
-            <FaSearch/>
-          </form>
+        <div className="home-search" >
+          <div className="home-search-input">
+          <input className="home-search-input" type="text" placeholder="Search" />
+            </div >
+            <div className="home-search-input"><input className="home-search-input" type="text" placeholder="Filter" />
+</div>          
         </div>
       </div>
       <div className="home-row">
