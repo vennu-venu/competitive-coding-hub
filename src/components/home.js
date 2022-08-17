@@ -8,6 +8,11 @@ function Home() {
   const navigate = useNavigate();
 
   const [userEmail, setUserEmail] = useState("");
+  const [count1, updateCount1] = useState(100);
+  const [count2, updateCount2] = useState(200);
+  const [count3, updateCount3] = useState(300);
+
+  const list = ["List-1","List-2","List-3","List-4","List-5"]
 
   useEffect(() => {
     async function verifyToken(tokenObj) {
@@ -16,12 +21,11 @@ function Home() {
           "http://localhost:5000/home/verify",
           tokenObj
         );
-        if(response.data.success) {
+        if (response.data.success) {
           setUserEmail(response.data.email);
-        }
-        else {
+        } else {
           localStorage.removeItem("cch-user-token");
-          navigate("/login")
+          navigate("/login");
         }
       } catch (error) {
         console.log("Error in Token Vefification: ", error);
@@ -43,31 +47,53 @@ function Home() {
   };
 
   return (
-    /*<div>
+    <div>
+      <ul class="topnav">
+        <li>
+          <a class="active" href="#home">
+            Competetive Coding Hub
+          </a>
+        </li>
+        <div className="home-li">
+          <li>
+            <a href="#posts">Posts</a>
+          </li>
+          <li>
+            <a href="#mydoubts">My Doubts</a>
+          </li>
+          <li>
+            <a href="#profile">Profile</a>
+          </li>
+        </div>
+      </ul>
+      <div className="home-counts">
+        <div className="home-count1">
+          <div className="home-countnumber">{count1}</div>
+          <span className="home-countname">Count-1</span>
+        </div>
+        <div className="home-count2">
+          <div className="home-countnumber">{count2}</div>
+          <span className="home-countname">Count-2</span>
+        </div>
+        <div className="home-count3">
+          <div className="home-countnumber">{count3}</div>
+          <span className="home-countname">Count-3</span>
+        </div>
+      </div>
+      <div className="home-list">
+        {list.map((item)=>(
+        <div>{item}</div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export default Home;
+
+/*<div>
       <h1 className="welcome">Hello {userEmail}</h1>
       <button className="sign-out-btn" onClick={signOut}>
         Sign Out
       </button>
     </div>*/
-<ul class="topnav">
-  <li><a class="active" href="#home">Competetive Coding Hub</a></li>
-<div className="home-li"> 
-  <li><a href="#home" >Posts</a></li>
-  <li><a href="#news" >My Doubts</a></li>
-  
-  <div class="dropdown">
-  <li ><a href="#contact">Profile</a></li>
-  <div class="dropdown-content">
-  <a href="#">Link 1</a>
-    <a href="#">Link 2</a>
-    <a href="#">Link 3</a>
-  </div>
-  
-</div>
-  
-  </div>
-</ul>
-  );
-}
-
-export default Home;
