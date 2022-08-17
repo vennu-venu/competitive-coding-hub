@@ -2,7 +2,7 @@ import "../styles/home.css";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { FaSearch } from 'react-icons/fa';
+import { FaSearch } from "react-icons/fa";
 import axios from "axios";
 import Post from "./post";
 import Profile from "./profile";
@@ -16,46 +16,51 @@ function Home() {
 
   const list = [
     {
-    id:"1",
-    title:"ABC",
-    postedBy:"Ram",
-    date:"4th dec 2021",
-    question: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, nobis.",
-    replies:"5"
-  },
-  {
-    id:"1",
-    title:"ABC",
-    postedBy:"Ram",
-    date:"4th dec 2021",
-    question: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, nobis dgdgdg shdggd hdghd.",
-    replies:"5"
-  },
-  {
-    id:"1",
-    title:"ABC",
-    postedBy:"Ram",
-    date:"4th dec 2021",
-    question: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, nobis.",
-    replies:"5"
-  },
-  {
-    id:"1",
-    title:"ABC",
-    postedBy:"Ram",
-    date:"4th dec 2021",
-    question: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, nobis.",
-    replies:"5"
-  },
-  {
-    id:"1",
-    title:"ABC",
-    postedBy:"Ram",
-    date:"4th dec 2021",
-    question: "Lorem ipsum dolor bbbbbbbbb hhhhhhhhhh jjjjjjjjjjjjjjjjjjjjjjjjjjjjjj jjjjjjjjj jjjjjjjj jjjjjjjjj hdhhd hdhhd vsfgfd jjjjj jjjjjjjjjjjj sit amet consectetur adipisicing elit. Id, nobis.",
-    replies:"5"
-  }
-]
+      id: "1",
+      title: "ABC",
+      postedBy: "Ram",
+      date: "4th dec 2021",
+      question:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, nobis.",
+      replies: "5",
+    },
+    {
+      id: "1",
+      title: "ABC",
+      postedBy: "Ram",
+      date: "4th dec 2021",
+      question:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, nobis dgdgdg shdggd hdghd.",
+      replies: "5",
+    },
+    {
+      id: "1",
+      title: "ABC",
+      postedBy: "Ram",
+      date: "4th dec 2021",
+      question:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, nobis.",
+      replies: "5",
+    },
+    {
+      id: "1",
+      title: "ABC",
+      postedBy: "Ram",
+      date: "4th dec 2021",
+      question:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, nobis.",
+      replies: "5",
+    },
+    {
+      id: "1",
+      title: "ABC",
+      postedBy: "Ram",
+      date: "4th dec 2021",
+      question:
+        "Lorem ipsum dolor bbbbbbbbb hhhhhhhhhh jjjjjjjjjjjjjjjjjjjjjjjjjjjjjj jjjjjjjjj jjjjjjjj jjjjjjjjj hdhhd hdhhd vsfgfd jjjjj jjjjjjjjjjjj sit amet consectetur adipisicing elit. Id, nobis.",
+      replies: "5",
+    },
+  ];
 
   useEffect(() => {
     async function verifyToken(tokenObj) {
@@ -89,11 +94,12 @@ function Home() {
     navigate("/");
   };
 
+
   return (
-    <div>
-      <ul class="topnav">
+    <div className="home-container">
+      <ul className="topnav">
         <li>
-          <a class="active" href="#home">
+          <a className="active" href="#home">
             Competetive Coding Hub
           </a>
         </li>
@@ -111,30 +117,43 @@ function Home() {
       </ul>
       <div className="home-row">
         <div className="home-counts">
-        <div className="home-count1">
-          <div className="home-countnumber">{count1}</div>
-          <span className="home-countname">Doubts</span>
+          <div className="home-count1">
+            <div className="home-countnumber">{count1}</div>
+            <span className="home-countname">Doubts</span>
+          </div>
+          <div className="home-count2">
+            <div className="home-countnumber">{count2}</div>
+            <span className="home-countname">Articles</span>
+          </div>
         </div>
-        <div className="home-count2">
-          <div className="home-countnumber">{count2}</div>
-          <span className="home-countname">Count-2</span>
-        </div>
-      </div>
-        <div className="home-search" >
+        <div className="home-search">
           <div className="home-search-input">
-          <input className="home-search-input" type="text" placeholder="Search" />
-            </div >
-            <div className="home-search-input"><input className="home-search-input" type="text" placeholder="Filter" />
-</div>          
+            <input
+              className="home-search-input"
+              type="text"
+              placeholder="Search"
+            />
+          </div>
+          <div className="home-search-input">
+            <input
+              className="home-search-input"
+              type="text"
+              placeholder="Filter"
+            />
+          </div>
         </div>
       </div>
       <div className="home-row">
-      <div className="home-profile"><Profile/></div>
-              <div className="home-list-group">
-        {list.map((obj)=>( 
-        <div className="home-list"><Post {...obj} /></div>
-        ))}
-      </div>
+        <div className="home-profile">
+          <Profile />
+        </div>
+        <div className="home-list-group">
+          {list.map((obj) => (
+            <div className="home-list">
+              <Post {...obj} />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

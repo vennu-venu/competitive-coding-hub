@@ -10,13 +10,14 @@ function Profile() {
 return(
     <div className="profile-main">
         <span className="profile-icon"><BsPersonSquare/></span>
-        <span className="profile-username">{userName}</span>
-        <hr className="profile-line"/>
-        <span>Doubts Posted</span>
-        <span>{doubtsPosted}</span>
-        <hr className="profile-line"/>
-        <span>Doubts Answered</span>
-        <span>{doubtsAnswered}</span>
+        <span className="profile-username"><b> {userName}</b></span>
+        <br/>
+        <br/>
+        <span><b>Doubts Posted</b></span>
+        <span> {doubtsPosted}</span>
+        <br/>
+        <span><b>Doubts Answered</b></span>
+        <span> {doubtsAnswered}</span>
     </div>
 );
 }
