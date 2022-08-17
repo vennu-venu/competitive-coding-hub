@@ -20,6 +20,7 @@ function Home() {
     title:"ABC",
     postedBy:"Ram",
     date:"4th dec 2021",
+    question: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, nobis.",
     replies:"5"
   },
   {
@@ -27,14 +28,7 @@ function Home() {
     title:"ABC",
     postedBy:"Ram",
     date:"4th dec 2021",
-    replies:"5"
-
-  },
-  {
-    id:"1",
-    title:"ABC",
-    postedBy:"Ram",
-    date:"4th dec 2021",
+    question: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, nobis dgdgdg shdggd hdghd.",
     replies:"5"
   },
   {
@@ -42,6 +36,7 @@ function Home() {
     title:"ABC",
     postedBy:"Ram",
     date:"4th dec 2021",
+    question: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, nobis.",
     replies:"5"
   },
   {
@@ -49,6 +44,15 @@ function Home() {
     title:"ABC",
     postedBy:"Ram",
     date:"4th dec 2021",
+    question: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, nobis.",
+    replies:"5"
+  },
+  {
+    id:"1",
+    title:"ABC",
+    postedBy:"Ram",
+    date:"4th dec 2021",
+    question: "Lorem ipsum dolor bbbbbbbbb hhhhhhhhhh jjjjjjjjjjjjjjjjjjjjjjjjjjjjjj jjjjjjjjj jjjjjjjj jjjjjjjjj hdhhd hdhhd vsfgfd jjjjj jjjjjjjjjjjj sit amet consectetur adipisicing elit. Id, nobis.",
     replies:"5"
   }
 ]

@@ -1,5 +1,8 @@
 .post-card{
-    padding: 30px;
+    padding-top: 1px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 30px;
 }
 .post-date{
     float: right;
@@ -7,4 +10,7 @@
 }
 .post-by{
     float: right;
+}
+.post-replies{
+    float: left;
 }

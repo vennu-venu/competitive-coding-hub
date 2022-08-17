@@ -5,13 +5,13 @@ import { useEffect, useState } from "react";
 import { FaCalendarDay } from 'react-icons/fa';
 import axios from "axios";
 
-function Post({ id, title, postedBy, date, replies }) {
+function Post({ id, title, postedBy, date,question, replies }) {
   return (
 
     <div class="post-card">
       <h3>{title}</h3>
-      <p>Question</p>
-      <p>Replies : {replies}</p>
+      <p>{question}</p>
+      <span className="post-replies">Replies : {replies}</span>
       <span className="post-by"><b>{postedBy}</b></span><span className="post-date"><FaCalendarDay/> {date}</span>
     </div>
   );
