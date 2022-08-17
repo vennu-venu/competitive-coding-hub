@@ -54,14 +54,17 @@ function Home() {
 <div className="home-li"> 
   <li><a href="#home" >Posts</a></li>
   <li><a href="#news" >My Doubts</a></li>
-  <li class="dropdown"><a href="#contact">Profile</a>
+  
+  <div class="dropdown">
+  <li ><a href="#contact">Profile</a></li>
   <div class="dropdown-content">
-      <a href="#">View Profile</a>
-      <a href="#">Edit Profile</a>
-      <a href="#">Change Password</a>
-      <a href="#">Logout</a>
-    </div>
-  </li>
+  <a href="#">Link 1</a>
+    <a href="#">Link 2</a>
+    <a href="#">Link 3</a>
+  </div>
+  
+</div>
+  
   </div>
 </ul>
   );
