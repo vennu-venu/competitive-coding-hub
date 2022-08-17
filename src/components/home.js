@@ -66,7 +66,8 @@ function Home() {
           </li>
         </div>
       </ul>
-      <div className="home-counts">
+      <div className="home-row">
+        <div className="home-top-cols">
         <div className="home-count1">
           <div className="home-countnumber">{count1}</div>
           <span className="home-countname">Count-1</span>
@@ -80,10 +81,19 @@ function Home() {
           <span className="home-countname">Count-3</span>
         </div>
       </div>
-      <div className="home-list">
+        <div className="home-top-cols">
+          <form>
+            <input className="home-search-input" type="text" placeholder="Search" />
+          </form>
+        </div>
+      </div>
+      <div className="home-row">
+        <div className="home-profile">Profile</div>
+        <div className="home-list-group">
         {list.map((item)=>(
-        <div>{item}</div>
+        <div className="home-list">{item}</div>
         ))}
+      </div>
       </div>
     </div>
   );

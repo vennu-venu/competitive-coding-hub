@@ -56,9 +56,10 @@ ul.topnav li.right {float: right;}
   .home-li {float: none}
   ul.topnav li {float: none;}
 }
-
-.home-counts{
+.home-top-cols{
   padding-top: 15px;
+  padding: 10px;
+  width: 50%;
 }
 
 .home-count1{
@@ -83,14 +84,32 @@ ul.topnav li.right {float: right;}
 .home-countnumber{
   font-size: 30px;
 }
-
+.home-row{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 20px;
+}
 .home-countname{
   color: #308d50;
 }
-
+.home-search input{
+  padding: 20px;
+  width: 10vh;
+  margin-left: 40%;
+}
+.home-profile{
+  width: 10%;
+}
+.home-list-group{
+  width: 80%;
+}
 .home-list{
-  display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 40%;
+  margin-top:10px;
+  margin-bottom:10px;
+  width: 80%;
+  background-color: #308d50;
+  color: black;
 }
