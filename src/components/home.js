@@ -2,6 +2,7 @@ import "../styles/home.css";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { FaSearch } from 'react-icons/fa';
 import axios from "axios";
 import Post from "./post";
 
@@ -122,13 +123,14 @@ function Home() {
         <div className="home-top-cols">
           <form>
             <input className="home-search-input" type="text" placeholder="Search" />
+            <FaSearch/>
           </form>
         </div>
       </div>
       <div className="home-row">
         <div className="home-profile">Profile</div>
         <div className="home-list-group">
-        {list.map((obj)=>(
+        {list.map((obj)=>( 
         <div className="home-list"><Post {...obj} /></div>
         ))}
       </div>
