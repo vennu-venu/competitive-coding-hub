@@ -94,24 +94,24 @@ function Home() {
     navigate("/");
   };
 
-
   return (
     <div className="home-container">
-      
       <div className="home-row">
         <div className="home-title">
-        <span className="home-first-letter">C</span>ompetetive <span className="home-first-letter">C</span>oding <span className="home-first-letter">H</span>ub
+          <span className="home-first-letter">C</span>ompetetive{" "}
+          <span className="home-first-letter">C</span>oding{" "}
+          <span className="home-first-letter">H</span>ub
         </div>
         <div className="home-buttons">
           <div className="home-btn home-post">Posts</div>
           <div className="home-btn home-doubt">Doubts</div>
           <div className="dropdown">
-          <div className="home-pro dropbtn">Profile</div>
-          <div class="dropdown-content">
-      <a href="#">View Profile</a>
-      <a href="#">Edit Profile</a>
-      <a href="#">Change Password</a>
-    </div>
+            <div className="home-btn home-pro dropbtn">Profile</div>
+            <div class="dropdown-content">
+              <a href="#">View Profile</a>
+              <a href="#">Edit Profile</a>
+              <a href="#">Change Password</a>
+            </div>
           </div>
         </div>
       </div>
@@ -123,10 +123,13 @@ function Home() {
           </div>
         </div>
         <div className="home-search">
-           <form> <input 
+          <form>
+            {" "}
+            <input
               className="home-search-input"
               type="text"
               placeholder="Search"
+
             ></input> 
 
             <select className="home-filterBy" id="profile">
@@ -152,14 +155,17 @@ function Home() {
   
 
             </form>
+
+           
+
         </div>
       </div>
-      <div className="home-row home-doubts">
-          {list.map((obj) => (
-            <div className="home-list">
-              <Post {...obj} />
-            </div>
-          ))}
+      <div className="home-row">
+        {list.map((obj) => (
+          <div className="home-list">
+            <Post {...obj} />
+          </div>
+        ))}
       </div>
     </div>
   );
