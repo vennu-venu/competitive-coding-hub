@@ -97,56 +97,35 @@ function Home() {
 
   return (
     <div className="home-container">
-      <ul className="topnav">
-        <li>
-          <a className="active" href="#home">
-            Competetive Coding Hub
-          </a>
-        </li>
-        <div className="home-li">
-          <li>
-            <a href="#posts">Posts</a>
-          </li>
-          <li>
-            <a href="#mydoubts">My Doubts</a>
-          </li>
-          <li>
-            <a href="#profile">Profile</a>
-          </li>
+      
+      <div className="home-row">
+        <div className="home-title">
+        Competetive Coding Hub
         </div>
-      </ul>
+        <div className="home-buttons">
+          <div className="home-post">Posts</div>
+          <div className="home-doubt">My Doubts</div>
+          <div className="home-pro">Profile</div>
+        </div>
+      </div>
       <div className="home-row">
         <div className="home-counts">
           <div className="home-count1">
             <div className="home-countnumber">{count1}</div>
             <span className="home-countname">Doubts</span>
           </div>
-          <div className="home-count2">
-            <div className="home-countnumber">{count2}</div>
-            <span className="home-countname">Articles</span>
-          </div>
         </div>
         <div className="home-search">
-          <div className="home-search-input">
-            <input
+          <div >
+            <input 
               className="home-search-input"
               type="text"
               placeholder="Search"
             />
           </div>
-          <div className="home-search-input">
-            <input
-              className="home-search-input"
-              type="text"
-              placeholder="Filter"
-            />
-          </div>
         </div>
       </div>
       <div className="home-row">
-        <div className="home-profile">
-          <Profile />
-        </div>
         <div className="home-list-group">
           {list.map((obj) => (
             <div className="home-list">

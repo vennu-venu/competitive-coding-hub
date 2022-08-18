@@ -1,55 +1,22 @@
-.sign-out-btn {
-  display: block;
-  margin: 40px auto;
-  background-color: transparent;
-  padding: 12px 20px;
-  border-radius: 20px;
-  border: 2px solid whitesmoke;
-  color: white;
-  cursor: pointer;
-}
-.sign-out-btn:hover {
-  background-color: whitesmoke;
-  color: black;
-  font-weight: 600;
-  transform: scale(1.1);
-  transition-duration: 0.25s;
+.home-buttons{
+  display: flex;
+  flex-direction: row;
 }
 
-body {
-  margin: 0;
-}
-
-ul.topnav {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
+.home-post,.home-doubt,.home-pro{
+  padding: 10px;
+  margin: 20px;
   background-color: #333;
+  border-radius: 5px ;
+  opacity:60%;
 }
 
-ul.topnav li {
-  float: left;
+.home-buttons{
+  width: 40%;
 }
-
-ul.topnav li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-ul.topnav li a:hover:not(.active) {
-  background-color: #111;
-}
-
-ul.topnav li a.active {
-  background-color: #308d50;
-}
-
-ul.topnav li.right {
-  float: right;
+.home-title{
+  font-size:xx-large;
+  width: 60%;
 }
 
 .home-li {
@@ -63,7 +30,11 @@ ul.topnav li.right {
 }
 
 .home-count1 {
-  margin-right: 50px;
+  padding: 10px;
+  background-color: #333;
+  border-radius: 50% ;
+  opacity:60%;
+  margin: auto;
 }
 .home-countnumber {
   font-size: 20px;
@@ -77,33 +48,32 @@ ul.topnav li.right {
   color: #308d50;
 }
 .home-search {
+  width: 90%;
   display: flex;
   flex-direction: row;
 }
 .home-search-input {
   border-radius: 10px;
-  width: 100%;
   margin-right: 30px;
   padding: 15px;
-}
-.home-profile {
-  width: 30%;
-}
-.home-list-group {
-  width: 70%;
 }
 .home-search-input:focus {
   transform: scale(1.01);
   transition-duration: 1s;
 }
 
+
+.home-list-group {
+  width: 100%;
+}
 .home-list {
   box-sizing: border-box;
   border-radius: 10px;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 20px;
-  background-color: #308d50;
+  background-color:aquamarine;
+  opacity: 60%;
   color: black;
 }
 .home-list:hover {
