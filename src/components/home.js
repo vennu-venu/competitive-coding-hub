@@ -123,49 +123,45 @@ function Home() {
           </div>
         </div>
         <div className="home-search">
-          <form>
+          <form className="home-form">
+            <div className="home-search-by">
             {" "}
             <input
               className="home-search-input"
               type="text"
               placeholder="Search"
-
-            ></input> 
-
+            ></input>
             <select className="home-filterBy" id="profile">
-              
-    <option value="Option-1">Option-1</option>
-    
-    <option value="Option-2">Option-2</option>
-    <option value="Option-3">Option-3</option>
-    <option value="Option-4">Option-4</option>
-    
-  </select>
+              <option value="Option-1">Option-1</option>
+              <option value="Option-2">Option-2</option>
+              <option value="Option-3">Option-3</option>
+              <option value="Option-4">Option-4</option>
+            </select>
+            <button className="home-search-btn" type="submit"> 
+            <FaSearch style={{ color: "green" }} /> </button>
+            
+            </div>
+            <div className="home-sort-by">
+            <label className="home-sortByText">Sort by </label>
+            <select className="home-sortBy" id="profile">
+              <option value="Option-1">Option-1</option>
 
-<label className="home-sortByText">Sort by</label>
-  <select className="home-sortBy" id="profile">
-              
-    <option value="Option-1">Option-1</option>
-    
-    <option value="Option-2">Option-2</option>
-    <option value="Option-3">Option-3</option>
-    <option value="Option-4">Option-4</option>
-    
-  </select>
-  
-
-            </form>
-
-           
-
+              <option value="Option-2">Option-2</option>
+              <option value="Option-3">Option-3</option>
+              <option value="Option-4">Option-4</option>
+            </select>
+            </div>
+          </form>
         </div>
       </div>
       <div className="home-row">
+        <div className="home-doubts-list">
         {list.map((obj) => (
           <div className="home-list">
             <Post {...obj} />
           </div>
         ))}
+        </div>
       </div>
     </div>
   );

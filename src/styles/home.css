@@ -105,13 +105,11 @@ font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
   padding: 13px;
-  width: 70%;
 }
 
 .home-filterBy{
+  border: none;
   background-color: #308d50;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
   padding: 12px;
 }
 
@@ -120,18 +118,16 @@ font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans
 }
 
 .home-sortByText{
-  margin-left: 10px;
-  font-size: large;
-  color:whitesmoke;
+  color:#308d50;
   font-weight: bold;
 }
 
 .home-sortBy{
-  background-color: #308d50;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
+  border: none;
+  background-color:#333;
+  opacity:60% ;
+  border-radius: 10px;
+  color: #308d50;
   padding: 12px;
 }
 
@@ -148,13 +144,48 @@ font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans
 .home-list {
   border-radius: 10px;
   margin:10px;
-  background-color:aquamarine;
+  background-color:#308d50;
   opacity: 60%;
   color: black;
+}
+.home-search-btn{ 
+  background-color: #333;
+  opacity: 100%;
+  padding: 13px;
+  border: none;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  cursor: pointer; 
 }
 .home-list:hover {
   transform: scale(1.03);
   transition-duration: 1s;
+}
+.home-form{
+  display: flex;
+  flex-direction: row;
+  justify-content:space-around;
+}
+.home-doubts-list{
+  display: flex;
+  flex-direction: column;
+}
+@media screen and (max-width: 900px){
+  .home-form{
+    flex-direction:column;
+    justify-content:center;
+  }
+  .home-sortBy{
+    margin: auto;
+    margin-top: 20px;
+  }
+  .home-search-by{
+    margin:auto;
+  }
+  .home-sort-by{
+    margin: auto;
+  }
+
 }
 @media screen and (max-width: 600px) {
   
@@ -169,6 +200,15 @@ font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans
   .home-buttons{
     margin-top: 30px;
   }
+  .home-filterBy{
+    width: 20px
+  }
+  .home-search-input{
+    width: 100px;
+  }
+}
+@media screen and (max-width: 400px){
+
 }
 
 @media screen and (max-width: 830px) {
