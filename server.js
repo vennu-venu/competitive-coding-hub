@@ -32,15 +32,17 @@ mc.connect(dburl, { useNewUrlParser: true, useUnifiedTopology: true })
 //Importing Apis
 const loginApiRoute = require("./apis/loginApi");
 const registerApiRoute = require("./apis/registerApi");
-const homeApiRoute = require("./apis/tokenVerificationApi");
+const homeApiRoute = require("./apis/homeApi");
 const OTPApiRoute = require("./apis/OTPApi");
-const forgotPasswordApiRoute = require("./apis/forgotPasswordApi")
+const forgotPasswordApiRoute = require("./apis/forgotPasswordApi");
+const profileApi = require("./apis/profileApi")
 
 app.use("/login", loginApiRoute);
 app.use("/register", registerApiRoute);
 app.use("/verify-email", OTPApiRoute);
 app.use("/forgot-password", forgotPasswordApiRoute);
-app.use("/home", homeApiRoute[0]);
+app.use("/home", homeApiRoute);
+app.use("/profile", profileApi);
 
 // Handling unavailable path
 app.use((req, res, next) => {
