@@ -126,7 +126,7 @@ font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans
 .home-sortBy{
   border: none;
   background-color:#333;
-  opacity:60% ;
+  opacity:100% ;
   border-radius: 10px;
   color: #308d50;
   padding: 12px;
