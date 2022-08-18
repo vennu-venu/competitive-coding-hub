@@ -142,8 +142,9 @@ font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans
 }
 
 .home-list {
+  width: 100%;
   border-radius: 10px;
-  margin:10px;
+  margin-bottom:10px;
   background-color:#308d50;
   opacity: 60%;
   color: black;
@@ -207,8 +208,10 @@ font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans
     width: 100px;
   }
 }
-@media screen and (max-width: 400px){
-
+@media screen and (min-width: 1320px){
+  .home-search-input{
+    width: 500px;
+  }
 }
 
 @media screen and (max-width: 830px) {
