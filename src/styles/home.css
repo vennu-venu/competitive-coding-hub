@@ -94,7 +94,7 @@ font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans
 .home-search{
   margin: auto;
   padding: 25px;
-  width: 100%;
+  width:70%;
 }
 
 .home-search-input {
@@ -111,13 +111,13 @@ font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans
   background-color: #333;
   opacity: 100%;
   padding: 13px;
+  border: none;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
   cursor: pointer;
 }
 
 .home-list {
-  width: 100%;
   border-radius: 10px;
   margin:10px;
   background-color:aquamarine;
@@ -130,17 +130,10 @@ font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans
 }
 @media screen and (max-width: 600px) {
   
-  .home-search {
-    margin: auto;
-    flex-direction: column;
-  }
   .home-row {
     margin: auto;
     flex-direction: column;
     padding: 20px;
-  }
-  .home-search-input {
-    margin: 0px;
   }
   .home-counts {
     margin: auto;
