@@ -105,14 +105,21 @@ function Home() {
         <div className="home-buttons">
           <div className="home-btn home-post">Posts</div>
           <div className="home-btn home-doubt">Doubts</div>
-          <div className="home-btn home-pro">Profile</div>
+          <div className="dropdown">
+          <div className="home-pro dropbtn">Profile</div>
+          <div class="dropdown-content">
+      <a href="#">View Profile</a>
+      <a href="#">Edit Profile</a>
+      <a href="#">Change Password</a>
+    </div>
+          </div>
         </div>
       </div>
       <div className="home-row">
         <div className="home-counts">
           <div className="home-count1">
             <div className="home-countnumber">{count1}</div>
-            <span className="home-countname">Doubts</span>
+            <span className="home-countname">Total Doubts</span>
           </div>
         </div>
         <div className="home-search">
