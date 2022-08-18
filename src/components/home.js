@@ -100,12 +100,12 @@ function Home() {
       
       <div className="home-row">
         <div className="home-title">
-        Competetive Coding Hub
+        <span className="home-first-letter">C</span>ompetetive <span className="home-first-letter">C</span>oding <span className="home-first-letter">H</span>ub
         </div>
         <div className="home-buttons">
-          <div className="home-post">Posts</div>
-          <div className="home-doubt">My Doubts</div>
-          <div className="home-pro">Profile</div>
+          <div className="home-btn home-post">Posts</div>
+          <div className="home-btn home-doubt">Doubts</div>
+          <div className="home-btn home-pro">Profile</div>
         </div>
       </div>
       <div className="home-row">
@@ -116,23 +116,19 @@ function Home() {
           </div>
         </div>
         <div className="home-search">
-          <div >
-            <input 
+           <form> <input 
               className="home-search-input"
               type="text"
               placeholder="Search"
-            />
-          </div>
+            ></input><button className="home-search-btn" type="submit"><FaSearch style={{color:'green'}}/></button> </form>
         </div>
       </div>
-      <div className="home-row">
-        <div className="home-list-group">
+      <div className="home-row home-doubts">
           {list.map((obj) => (
             <div className="home-list">
               <Post {...obj} />
             </div>
           ))}
-        </div>
       </div>
     </div>
   );
