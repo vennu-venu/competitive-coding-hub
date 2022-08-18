@@ -37,6 +37,7 @@ font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans
 .home-title{
   font-size:xx-large;
   width: 60%;
+  
 }
 
 .home-li {
@@ -91,7 +92,15 @@ font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans
   display: flex;
   flex-direction: row;
   padding: 50px;
+  
 }
+
+.home-sticky{
+  position: sticky;
+  top: 0px;
+  z-index: 99;
+}
+
 .home-search{
   margin: auto;
   padding: 25px;

@@ -96,7 +96,7 @@ function Home() {
 
   return (
     <div className="home-container">
-      <div className="home-row">
+      <div className="home-row home-sticky">
         <div className="home-title">
           <span className="home-first-letter">C</span>ompetetive{" "}
           <span className="home-first-letter">C</span>oding{" "}

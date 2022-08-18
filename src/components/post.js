@@ -7,12 +7,16 @@ import axios from "axios";
 import { Link} from "react-router-dom";
 
 function Post({ id, title, postedBy, date,question, replies }) {
+
+  const truncate = (input) =>
+      input.length > 100 ? `${input.substring(0, 90)}...` : input;
+
   return (
     <div>
-<Link to={`/posts/${id}`}>
+<Link className="post-Link" to={`/posts/${id}`}>
     <div class="post-card">
       <h3>{title}</h3>
-      <p>{question}</p>
+      <p>{truncate(question)}</p>
       <span className="post-replies">Replies : {replies}</span>
       <span className="post-by"><b>{postedBy}</b></span><span className="post-date"><FaCalendarDay/> {date}</span>
     </div>
