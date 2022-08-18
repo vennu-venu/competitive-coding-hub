@@ -25,7 +25,7 @@ function Home() {
       replies: "5",
     },
     {
-      id: "1",
+      id: "2",
       title: "ABC",
       postedBy: "Ram",
       date: "4th dec 2021",
@@ -34,7 +34,7 @@ function Home() {
       replies: "5",
     },
     {
-      id: "1",
+      id: "3",
       title: "ABC",
       postedBy: "Ram",
       date: "4th dec 2021",
@@ -43,7 +43,7 @@ function Home() {
       replies: "5",
     },
     {
-      id: "1",
+      id: "4",
       title: "ABC",
       postedBy: "Ram",
       date: "4th dec 2021",
@@ -52,7 +52,7 @@ function Home() {
       replies: "5",
     },
     {
-      id: "1",
+      id: "5",
       title: "ABC",
       postedBy: "Ram",
       date: "4th dec 2021",
@@ -127,7 +127,31 @@ function Home() {
               className="home-search-input"
               type="text"
               placeholder="Search"
-            ></input><button className="home-search-btn" type="submit"><FaSearch style={{color:'green'}}/></button> </form>
+            ></input> 
+
+            <select className="home-filterBy" id="profile">
+              
+    <option value="Option-1">Option-1</option>
+    
+    <option value="Option-2">Option-2</option>
+    <option value="Option-3">Option-3</option>
+    <option value="Option-4">Option-4</option>
+    
+  </select>
+
+<label className="home-sortByText">Sort by</label>
+  <select className="home-sortBy" id="profile">
+              
+    <option value="Option-1">Option-1</option>
+    
+    <option value="Option-2">Option-2</option>
+    <option value="Option-3">Option-3</option>
+    <option value="Option-4">Option-4</option>
+    
+  </select>
+  
+
+            </form>
         </div>
       </div>
       <div className="home-row home-doubts">
@@ -148,4 +172,5 @@ export default Home;
       <button className="sign-out-btn" onClick={signOut}>
         Sign Out
       </button>
+      <button className="home-search-btn" type="submit"><FaSearch style={{color:'green'}}/></button>
     </div>*/

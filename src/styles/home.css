@@ -111,6 +111,34 @@ FaSearch{
   padding: 13px;
   width: 70%;
 }
+
+.home-filterBy{
+  background-color: #308d50;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding: 12px;
+}
+
+.home-options{
+  background-color: #333; 
+}
+
+.home-sortByText{
+  margin-left: 10px;
+  font-size: large;
+  color:whitesmoke;
+  font-weight: bold;
+}
+
+.home-sortBy{
+  background-color: #308d50;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  padding: 12px;
+}
+
 .home-search-btn{
   background-color: #333;
   opacity: 100%;
