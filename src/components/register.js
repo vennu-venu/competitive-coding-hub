@@ -28,7 +28,8 @@ function Register() {
     email: "",
     password: "",
     cpassword: "",
-    isVerified: false
+    isVerified: false,
+    no_of_posts: 0
   });
   let name, value;
 

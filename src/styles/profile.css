@@ -3,16 +3,17 @@
   margin-top: 20px;
   display: flex;
   justify-content: center;
+  word-wrap: break-word;
   overflow: hidden;
 }
 .profile-count {
   width: 30%;
   display: flex;
-  justify-content: center;
   align-items: center;
-  background-color: rgb(40, 40, 40, 0.8);
+  flex-flow: column;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.24), 0px 2px 8px rgba(0, 0, 0, 0.16);
   border-radius: 15px;
+  margin-top: 25px;
 }
 .profile-names {
   width: 60%;
@@ -21,11 +22,11 @@
   margin-left: 20px;
 }
 .profile-post {
-  font-size: 1.8em;
+  font-size: 1.6em;
   margin-left: 10px;
 }
 .profile-username {
-  font-size: 5em;
+  font-size: 3em;
   font-weight: 200;
   color: whitesmoke;
 }
@@ -43,51 +44,65 @@
   font-size: 4em;
 }
 .profile-circle {
-  width: 120px;
-  height: 120px;
+  width: 150px;
+  height: 150px;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  border: 4px solid #308d50;
+  border: 5px solid #308d50;
 }
 .profile-circle:hover {
-  padding: 10px;
+  border-radius: 8px;
   transition-duration: 0.5s;
 }
 .profile-cards {
-  padding: 10px;
+  padding: 20px;
   width: 90%;
+  display: flex;
+  flex-wrap: wrap;
   margin: auto;
 }
 .profile-card {
-  padding: 30px;
+  width: 45%;
+  margin-left: 30px;
+  padding: 20px 0px;
   margin-top: 20px;
-  background-color: rgb(40, 40, 40, 0.8);
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.24), 0px 2px 8px rgba(0, 0, 0, 0.16);
+  background-color: rgb(30, 30, 30);
+  box-shadow: 0px 1px 3px rgba(50, 50, 50, 0.24), 0px 2px 8px rgba(46, 46, 46, 0.16);
   border-radius: 10px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
+  padding-left: 0px;
+  justify-self: center;
+  row-gap: 20px;
+  border-left: 2px solid #308d50;
   overflow: hidden;
 }
+.profile-card-title, .profile-card-val, .profile-card-button {
+  text-align: center;
+  margin-left: 0px;
+  width: 90%;
+  margin: auto;
+  word-wrap: break-word;
+}
 .profile-card:hover {
-  background-color: #303030;
-  transform: scale(1.025);
+  background-color: black;
+  border-left: 4px solid #308d50;
+  box-shadow: #308d5160 5px 5px 10px;
   transition-duration: 0.32s;
 }
 .profile-card-title {
-  width: 35%;
   font-size: 1.8em;
-  color: rgb(122, 122, 122);
+  color: whitesmoke;
 }
 .profile-card-val {
-  width: 50%;
   font-size: 1.2em;
-  color: rgb(122, 122, 122);
+  color: whitesmoke;
 }
 .profile-card-button {
-  width: 15%;
+  width: 150px;
   text-decoration: none;
   background-color: #308d50;
   padding: 12px 16px;
@@ -104,6 +119,49 @@
 .profile-custom-letter {
   color: #308d50;
   font-size: 1.2em;
+}
+.profile-user-not-found {
+  font-size: 4em;
+  text-align: center;
+  font-weight: 200;
+  margin-top: 100px;
+}
+.profile-user-not-found-username {
+  font-size: 0.5em;
+  text-align: center;
+  font-weight: 100;
+  margin-top: 20px;
+}
+.update-profile-opt {
+  text-decoration: none;
+  color: #308d50;
+  font-size: 1rem;
+  margin-left: 5px;
+  font-style: italic;
+}
+.display-ib {
+  display: inline-block;
+}
+
+.profile-edit-icon {
+  position: relative;
+  top: 5px;
+}
+.profile-card-inp {
+  background-color: transparent;
+  border: 2px solid rgb(70, 70, 70);
+  width: 50%;
+  padding: 12px 16px;
+  font-size: 1rem;
+  color: whitesmoke;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.profile-card-inp:focus {
+  outline: none;
+  border: 2px solid #308d50;
+  transition-duration: 00.25s;
 }
 
 @media (max-width: 800px) {
@@ -122,9 +180,12 @@
   .profile-username {
     font-size: 3.6em;
   }
+  .profile-cards {
+    display: block;
+  }
   .profile-card {
-    flex-direction: column;
-    padding-left: 0px;
+    width: 100%;
+    margin-left: 0px;
     justify-self: center;
     row-gap: 20px;
   }
@@ -136,5 +197,9 @@
   }
   .profile-card-button {
     width: 150px;
+  }
+  .update-button {
+    top: 20px;
+    right: 10px;
   }
 }
