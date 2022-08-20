@@ -93,6 +93,7 @@ OTPApiRoute.post("/verify-otp", async (req, res) => {
         message: "Your Email has been successfully verified",
         jwt: signedToken,
         success: true,
+        username: obj.username
       });
     } else {
       res.send({ message: "Your OTP was expired", success: false });

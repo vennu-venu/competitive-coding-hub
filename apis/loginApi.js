@@ -30,6 +30,7 @@ loginApiRoute.post("/check", async (req, res) => {
           message: "Successful Login !!",
           success: true,
           jwt: signedToken,
+          username: obj.username
         });
       } else {
         res.send({ message: "Wrong Password", success: false });

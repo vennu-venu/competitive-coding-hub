@@ -65,8 +65,9 @@ function EmailVerification() {
         { email: finalEmail, otp: otp }
       );
       if (response.data.success) {
-        NotificationManager.success(response.data.message);
+        NotificationManager.success(response.data.message, "Welcome" + response.data.username);
         localStorage.setItem("cch-user-token", response.data.jwt);
+        localStorage.setItem("cch-user-username", response.data.username);
         navigate("/home");
       } else {
         NotificationManager.error(response.data.message);

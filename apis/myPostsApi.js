@@ -1,11 +1,12 @@
 const exp = require("express");
 const jwt = require("jsonwebtoken");
 
-const homeApiRoute = exp.Router();
-homeApiRoute.use(exp.json());
-homeApiRoute.post("/verify-and-retrieve", async (req, res) => {
+const myPostsApiRoute = exp.Router();
+myPostsApiRoute.use(exp.json());
+myPostsApiRoute.post("/verify-and-retrieve", async (req, res) => {
   let dbObj = req.app.locals.databaseObj;
   const token = req.body.token;
+  const username = req.body.username;
   await jwt.verify(token, "cch", async (error, decodedObj) => {
     if (error) {
       res.send({
@@ -21,7 +22,7 @@ homeApiRoute.post("/verify-and-retrieve", async (req, res) => {
         delete userData.password;
         await dbObj
           .collection("posts")
-          .find({})
+          .find({user: {$eq: username}})
           .toArray(async (error, result) => {
             if (error) {
               res.send({
@@ -51,4 +52,4 @@ homeApiRoute.post("/verify-and-retrieve", async (req, res) => {
   });
 });
 
-module.exports = homeApiRoute;
+module.exports = myPostsApiRoute;

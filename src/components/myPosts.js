@@ -8,18 +8,18 @@ import { GoSearch } from "react-icons/go";
 import Post from "./post";
 import axios from "axios";
 
-function Home() {
+function MyPosts() {
   const navigate = useNavigate();
 
   const [data, setData] = useState(null);
   const [filterData, setFilterData] = useState([]);
 
   useEffect(() => {
-    async function verifyAndRetrieve(tokenObj) {
+    async function verifyAndRetrieve(dataObj) {
       try {
         const response = await axios.post(
-          "http://localhost:5000/home/verify-and-retrieve",
-          tokenObj
+          "http://localhost:5000/my-posts/verify-and-retrieve",
+          dataObj
         );
         if (!response.data.verification) {
           localStorage.removeItem("cch-user-token");
@@ -39,10 +39,11 @@ function Home() {
     if (localStorage.getItem("cch-user-token") === null) {
       navigate("/login");
     } else {
-      const tokenObj = {
+      const dataObj = {
         token: localStorage.getItem("cch-user-token"),
+        username: localStorage.getItem("cch-user-username")
       };
-      verifyAndRetrieve(tokenObj);
+      verifyAndRetrieve(dataObj);
     }
   }, [navigate]);
 
@@ -50,8 +51,7 @@ function Home() {
     const searchItem = e.target.value;
     let res = data.posts.filter((post) => {
       return (
-        post.title.toLowerCase().search(searchItem.toLowerCase()) !== -1 ||
-        post.user.toLowerCase().search(searchItem.toLowerCase()) !== -1
+        post.title.toLowerCase().search(searchItem.toLowerCase()) !== -1
       );
     });
     if (e.target.value.length) {
@@ -73,7 +73,7 @@ function Home() {
               <p className="home-post">Posts</p>
             </div>
             <div className="home-right">
-              <p className="home-greet">Hey <span className="profile-custom-letter">@</span>{data.user.username}</p>
+              <p className="home-greet"><span className="profile-custom-letter">M</span>y Posts</p>
               <div>
                 <GoSearch className="home-search-icon" />
                 <input
@@ -81,7 +81,7 @@ function Home() {
                   type="text"
                   name="search"
                   onChange={handleSearchItem}
-                  placeholder="Search by Titles, Users"
+                  placeholder="Search by Title"
                   required
                 />
               </div>
@@ -91,7 +91,7 @@ function Home() {
             {filterData.length > 0 ? (
               <div className="home-cards">
                 {filterData.map((post) => {
-                  return <Post key={post._id} post={post} />;
+                  return <Post key={post._id} post={post} isMyPost={true}/>;
                 })}
               </div>
             ) : (
@@ -106,4 +106,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default MyPosts;

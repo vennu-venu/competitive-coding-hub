@@ -6,13 +6,49 @@ import Home from "./components/home";
 import EmailVerification from "./components/emailVerification";
 import ForgotPassword from "./components/forgotPassword";
 import Profile from "./components/profile";
-import UPdateProfile from "./components/updateProfile";
+import UpdateProfile from "./components/updateProfile";
+import NavBar from "./components/navbar";
+import SignOut from "./components/signOut";
+import MyPosts from "./components/myPosts";
 import { Routes, Route } from "react-router-dom";
 import { NotificationContainer } from "react-notifications";
+import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 function App() {
+
+  const navigate = useNavigate();
+
+  const [userEmail, setUserEmail] = useState("");
+
+  useEffect(() => {
+    async function verifyToken(tokenObj) {
+      try {
+        const response = await axios.post(
+          "http://localhost:5000/profile/verify",
+          tokenObj
+        );
+        if (response.data.success) {
+          setUserEmail(response.data.email);
+        } else {
+          localStorage.removeItem("cch-user-token");
+        }
+      } catch (error) {
+        console.log("Error in Token Vefification: ", error);
+      }
+    }
+    if (localStorage.getItem("cch-user-token") !== null) {
+      const tokenObj = {
+        token: localStorage.getItem("cch-user-token"),
+      };
+      verifyToken(tokenObj);
+    }
+  }, [navigate]);
+
   return (
     <div>
+      {userEmail && <NavBar email={userEmail}/>}
       <Routes>
         <Route path="/" element={<Start />}></Route>
         <Route path="/login" element={<Login />}></Route>
@@ -21,7 +57,9 @@ function App() {
         <Route path="/verify-email" element={<EmailVerification/>}></Route>
         <Route path="/forgot-password" element={<ForgotPassword/>}></Route>
         <Route path="/profile/:username" element={<Profile/>}></Route>
-        <Route path="/update-profile" element={<UPdateProfile/>}></Route>
+        <Route path="/update-profile" element={<UpdateProfile/>}></Route>
+        <Route path="/sign-out" element={<SignOut/>}></Route>
+        <Route path="/my-posts" element={<MyPosts/>}></Route>
       </Routes>
       <NotificationContainer />
     </div>

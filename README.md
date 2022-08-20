@@ -82,3 +82,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 7. npm i nodemailer
 8. npm i dotenv
 9. npm i nodemon
+10. npm i react-icons
+11. npm i responsive-navbar-react
