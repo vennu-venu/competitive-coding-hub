@@ -38,6 +38,7 @@ const forgotPasswordApiRoute = require("./apis/forgotPasswordApi");
 const profileApi = require("./apis/profileApi")
 const updateProfileApiRoute = require("./apis/updateProfileApi");
 const myPostsApiRoute = require("./apis/myPostsApi");
+const postsApiRoute = require("./apis/postsApi");
 
 app.use("/login", loginApiRoute);
 app.use("/register", registerApiRoute);
@@ -47,6 +48,7 @@ app.use("/home", homeApiRoute);
 app.use("/profile", profileApi);
 app.use("/update-profile", updateProfileApiRoute);
 app.use("/my-posts", myPostsApiRoute);
+app.use("/posts", postsApiRoute);
 
 // Handling unavailable path
 app.use((req, res, next) => {

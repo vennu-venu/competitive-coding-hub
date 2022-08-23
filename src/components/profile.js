@@ -20,6 +20,7 @@ function Profile() {
         );
         if (!response.data.success) {
           localStorage.removeItem("cch-user-token");
+          localStorage.removeItem("cch-user-username");
           navigate("/login");
         } else {
           setEmail(response.data.email);

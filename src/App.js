@@ -10,6 +10,7 @@ import UpdateProfile from "./components/updateProfile";
 import NavBar from "./components/navbar";
 import SignOut from "./components/signOut";
 import MyPosts from "./components/myPosts";
+import Replies from "./components/replies";
 import { Routes, Route } from "react-router-dom";
 import { NotificationContainer } from "react-notifications";
 import { useNavigate } from "react-router-dom";
@@ -60,6 +61,7 @@ function App() {
         <Route path="/update-profile" element={<UpdateProfile/>}></Route>
         <Route path="/sign-out" element={<SignOut/>}></Route>
         <Route path="/my-posts" element={<MyPosts/>}></Route>
+        <Route path="/posts/:post_id" element={<Replies/>}></Route>
       </Routes>
       <NotificationContainer />
     </div>

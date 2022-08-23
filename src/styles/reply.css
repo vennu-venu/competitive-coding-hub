@@ -1,0 +1,29 @@
+.reply {
+  border-left: 4px solid #308d50;
+  padding: 10px 20px;
+  margin-top: 10px;
+  margin-bottom: 40px;
+}
+.reply-code {
+  white-space: pre;
+  background-color: rgb(50, 50, 50);
+  font-family: "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier,
+    monospace;
+  padding: 20px;
+  margin: 30px 0px 10px 0px;
+  border-radius: 20px;
+  line-height: 30px;
+  width: 60%;
+  overflow-x: scroll;
+}
+
+@media (max-width: 768px) {
+  .reply {
+    padding: 10px;
+  }
+  .reply-code {
+    width: 80vw;
+    margin: auto;
+    margin-top: 20px;
+  }
+}
