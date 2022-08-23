@@ -40,6 +40,7 @@ newPostApiRoute.post("/add-doubt", async (req, res) => {
           let obj = await dbObj
             .collection("users")
             .findOne({ email: { $eq: decodedObj.email } });
+          await dbObj.collection("users").updateOne({email: {$eq: decodedObj.email}}, {$set: {no_of_posts: parseInt(obj.no_of_posts)}});
           await dbObj
             .collection("users")
             .updateOne(

@@ -1,5 +1,6 @@
 const exp = require("express");
 const jwt = require("jsonwebtoken");
+const nodemailer = require("nodemailer");
 
 const postsApiRoute = exp.Router();
 postsApiRoute.use(exp.json());
@@ -16,7 +17,7 @@ postsApiRoute.post("/verify-and-retrieve", async (req, res) => {
       });
     } else {
       try {
-        let ObjectId = require('mongodb').ObjectId; 
+        let ObjectId = require("mongodb").ObjectId;
         let obj = await dbObj
           .collection("posts")
           .findOne({ _id: { $eq: ObjectId(post_id) } });
@@ -52,17 +53,69 @@ postsApiRoute.post("/post-reply", async (req, res) => {
       });
     } else {
       try {
-        let ObjectId = require('mongodb').ObjectId; 
-        let obj = await dbObj.collection("users").findOne({email: {$eq: decodedObj.email}});
-        replyData = {...replyData, user: obj.username};
+        let ObjectId = require("mongodb").ObjectId;
+        let obj = await dbObj
+          .collection("users")
+          .findOne({ email: { $eq: decodedObj.email } });
+        replyData = { ...replyData, user: obj.username };
         await dbObj
           .collection("posts")
-          .updateOne({ _id: { $eq: ObjectId(post_id) } }, {$push: {replies: replyData}});
+          .updateOne(
+            { _id: { $eq: ObjectId(post_id) } },
+            { $push: { replies: replyData } }
+          );
         res.send({
           message: "Reply Sent",
           success: true,
           verification: true,
         });
+        try {
+          let postObj = await dbObj
+            .collection("posts")
+            .findOne({ _id: { $eq: ObjectId(post_id) } });
+          if (replyData.user !== postObj.user && !postObj.isAnonymous) {
+            const transporter = nodemailer.createTransport({
+              service: "gmail",
+              auth: {
+                user: process.env.CCH_EMAIL,
+                pass: process.env.CCH_PASS,
+              },
+            });
+
+            let userObj = await dbObj
+              .collection("users")
+              .findOne({ email: { $eq: postObj.user_email } });
+
+            var mailOptions = {
+              from: "competitive.coding.hub@gmail.com",
+              to: postObj.user_email,
+              subject:
+                "Competitive Coding Hub | Response from " + replyData.user + " | " + postObj.title,
+              text:
+                "Hello " +
+                userObj.first_name +
+                " " +
+                userObj.last_name +
+                "\n\n" +
+                replyData.user +
+                " has replied to your post with the title, " +
+                postObj.title +
+                "\n\n\n\n" +
+                replyData.reply +
+                "\n\n" +
+                replyData.reply_code +
+                "\n\n\n\n#ask  #learn  #code",
+            };
+
+            transporter.sendMail(mailOptions, async function (error, info) {
+              if (error) {
+                console.log("Error in sending Mail: ", error);
+              }
+            });
+          }
+        } catch (error) {
+          console.log("Error in Sending OTP: ", error);
+        }
       } catch (error) {
         res.send({
           message: "Couldn't send the Reply",

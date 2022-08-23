@@ -7,7 +7,7 @@ function SignOut() {
     localStorage.removeItem("cch-user-token");
     localStorage.removeItem("cch-user-username");
     navigate("/");
-  })
+  }, [navigate]);
 
   return (
     <></>
