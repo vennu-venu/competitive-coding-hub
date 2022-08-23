@@ -27,7 +27,7 @@ function Home() {
         } else {
           if (response.data.success) {
             setData(response.data);
-            setFilterData(response.data.posts);
+            setFilterData(response.data.posts.reverse());
           } else {
             NotificationManager.error("Couldn't fetch the data");
           }

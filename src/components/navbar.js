@@ -11,7 +11,7 @@ function NavBar() {
       },
       {
         text: 'New Post',
-        link: '/'
+        link: '/new-post'
       },
       {
         text: 'My Posts',

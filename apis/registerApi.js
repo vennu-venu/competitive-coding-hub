@@ -13,7 +13,7 @@ registerApiRoute.post("/create", async (req, res) => {
   let obj = await dbObj
     .collection("users")
     .findOne({ username: { $eq: username } });
-  if (obj != null) {
+  if (obj != null || username === "Unknown" || username === "unknown") {
     res.send({ message: "Username already exists", success: false });
   } else {
     obj = await dbObj.collection("users").findOne({ email: { $eq: email } });

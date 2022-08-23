@@ -42,7 +42,7 @@ postsApiRoute.post("/post-reply", async (req, res) => {
   let dbObj = req.app.locals.databaseObj;
   const token = req.body.token;
   const post_id = req.body.post_id;
-  const replyData = req.body.replyData;
+  let replyData = req.body.replyData;
   await jwt.verify(token, "cch", async (error, decodedObj) => {
     if (error) {
       res.send({
@@ -53,6 +53,8 @@ postsApiRoute.post("/post-reply", async (req, res) => {
     } else {
       try {
         let ObjectId = require('mongodb').ObjectId; 
+        let obj = await dbObj.collection("users").findOne({email: {$eq: decodedObj.email}});
+        replyData = {...replyData, user: obj.username};
         await dbObj
           .collection("posts")
           .updateOne({ _id: { $eq: ObjectId(post_id) } }, {$push: {replies: replyData}});

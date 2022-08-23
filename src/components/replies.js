@@ -4,7 +4,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { FaReplyAll, FaRegCalendar, FaUser } from "react-icons/fa";
 import "react-notifications/lib/notifications.css";
 import { NotificationManager } from "react-notifications";
-import {TbSend} from "react-icons/tb"
+import { TbSend } from "react-icons/tb";
 import axios from "axios";
 import Reply from "./reply";
 
@@ -55,22 +55,24 @@ function Replies() {
     window.scrollTo(0, document.body.scrollHeight);
   }
   async function postReply() {
-    if(replyDesc.length === 0) {
+    if (replyDesc.length === 0) {
       NotificationManager.error("Reply should not be empty !!");
       return;
     }
     const replyData = {
-      user: localStorage.getItem("cch-user-username"),
       reply: replyDesc,
       reply_code: replyCode,
-      time: Date.now()
-    }
+      time: Date.now(),
+    };
     try {
-      const response = await axios.post("http://localhost:5000/posts/post-reply", {
-        token: localStorage.getItem("cch-user-token"),
-        post_id: post_id,
-        replyData: replyData
-      })
+      const response = await axios.post(
+        "http://localhost:5000/posts/post-reply",
+        {
+          token: localStorage.getItem("cch-user-token"),
+          post_id: post_id,
+          replyData: replyData,
+        }
+      );
       if (!response.data.verification) {
         NotificationManager.error(response.data.message);
         localStorage.removeItem("cch-user-token");
@@ -85,8 +87,7 @@ function Replies() {
           navigate("/home");
         }
       }
-    }
-    catch(error) {
+    } catch (error) {
       console.log("Error in sending message", error);
     }
   }
@@ -142,7 +143,19 @@ function Replies() {
               {post.user}
             </Link>
           </div>
-          <button className="go-to-send" onClick={goToBottom}><FaReplyAll className="reply-send-icon"/> Reply</button>
+          <button className="go-to-send" onClick={goToBottom}>
+            <FaReplyAll className="reply-send-icon" /> Reply
+          </button>
+          {post.problem_link && (
+            <a
+              className="go-to-problem"
+              href={post.problem_link}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Go to problem
+            </a>
+          )}
           <div className="reply-post-desc">{post.problem_desc}</div>
           <div className="reply-post-code">{post.code}</div>
           {post.replies && (
@@ -160,12 +173,34 @@ function Replies() {
           )}
           <p className="your-reply">Your Reply</p>
           <div>
-            <textarea rows={"5"} className="reply-desc-inp" wrap="off" autoCorrect="off" autoCapitalize="off" spellCheck="false" value={replyDesc} onChange={handleDescChange} placeholder="Your reply.."/>
+            <textarea
+              rows={"5"}
+              className="reply-desc-inp"
+              wrap="off"
+              autoCorrect="off"
+              autoCapitalize="off"
+              spellCheck="false"
+              value={replyDesc}
+              onChange={handleDescChange}
+              placeholder="Your reply.."
+            />
           </div>
           <div>
-            <textarea rows={"5"} className="reply-code-inp" wrap="off" autoCorrect="off" autoCapitalize="off" spellCheck="false" value={replyCode} onChange={handleCodeChange} placeholder="Code snippet.."/>
+            <textarea
+              rows={"5"}
+              className="reply-code-inp"
+              wrap="off"
+              autoCorrect="off"
+              autoCapitalize="off"
+              spellCheck="false"
+              value={replyCode}
+              onChange={handleCodeChange}
+              placeholder="Code snippet.."
+            />
           </div>
-          <button className="reply-send" onClick={postReply}>Send <TbSend className="reply-send-icon"/></button>
+          <button className="reply-send" onClick={postReply}>
+            Send <TbSend className="reply-send-icon" />
+          </button>
         </div>
       ) : (
         <div>

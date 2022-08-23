@@ -118,7 +118,19 @@
   margin: 10px 0px;
   padding: 5px 10px 10px 10px;
 }
-.reply-send:hover, .go-to-send:hover {
+.go-to-problem {
+  background-color: #308d50;
+  width: 100px;
+  padding: 10px 12px;
+  font-size: 0.9rem;
+  border-radius: 20px;
+  color: whitesmoke;
+  cursor: pointer;
+  margin-bottom: 20px;
+  text-decoration: none;
+  margin-left: 10px;
+}
+.reply-send:hover, .go-to-send:hover{
   transform: scale(1.1);
   transition-duration: 00.5s;
 }

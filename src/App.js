@@ -11,6 +11,7 @@ import NavBar from "./components/navbar";
 import SignOut from "./components/signOut";
 import MyPosts from "./components/myPosts";
 import Replies from "./components/replies";
+import NewPost from "./components/newPost";
 import { Routes, Route } from "react-router-dom";
 import { NotificationContainer } from "react-notifications";
 import { useNavigate } from "react-router-dom";
@@ -62,6 +63,7 @@ function App() {
         <Route path="/sign-out" element={<SignOut/>}></Route>
         <Route path="/my-posts" element={<MyPosts/>}></Route>
         <Route path="/posts/:post_id" element={<Replies/>}></Route>
+        <Route path="/new-post" element={<NewPost/>}></Route>
       </Routes>
       <NotificationContainer />
     </div>
