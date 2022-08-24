@@ -122,11 +122,11 @@ postsApiRoute.post("/post-reply", async (req, res) => {
                   "\n\n\n\n#ask  #learn  #code",
               };
 
-              // transporter.sendMail(mailOptions, async function (error, info) {
-              //   if (error) {
-              //     console.log("Error in sending Mail: ", error);
-              //   }
-              // });
+              transporter.sendMail(mailOptions, async function (error, info) {
+                if (error) {
+                  console.log("Error in sending Mail: ", error);
+                }
+              });
             }
           } catch (error) {
             console.log("Error in Sending Reply Mail: ", error);
