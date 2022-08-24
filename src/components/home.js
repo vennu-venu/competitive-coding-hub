@@ -18,7 +18,7 @@ function Home() {
     async function verifyAndRetrieve(tokenObj) {
       try {
         const response = await axios.post(
-          "https://competitive-coding-hub.netlify.app/home/verify-and-retrieve",
+          "https://competitive-coding-hub.netlify.app/.netlify/functions/api/home/verify-and-retrieve",
           tokenObj
         );
         if (!response.data.verification) {
