@@ -1,6 +1,7 @@
 // Creating Server
 const exp = require("express");
 const app = exp();
+const serverless = require('serverless-http');
 
 var cors = require("cors");
 app.use(cors());
@@ -58,5 +59,6 @@ app.use((req, res, next) => {
 });
 
 // Assigning port number to the Server
-const port = 5000;
-app.listen(port, () => console.log(`Server on port ${port}`));
+// const port = 5000;
+// app.listen(port, () => console.log(`Server on port ${port}`));
+module.exports.handler = serverless(app);
