@@ -73,18 +73,22 @@ function Replies() {
           replyData: replyData,
         }
       );
-      if (!response.data.verification) {
+      if (response.abusive_content) {
         NotificationManager.error(response.data.message);
-        localStorage.removeItem("cch-user-token");
-        localStorage.removeItem("cch-user-username");
-        navigate("/login");
       } else {
-        if (response.data.success) {
-          NotificationManager.success("Your reply has been posted");
-          window.location.reload();
-        } else {
+        if (!response.data.verification) {
           NotificationManager.error(response.data.message);
-          navigate("/home");
+          localStorage.removeItem("cch-user-token");
+          localStorage.removeItem("cch-user-username");
+          navigate("/login");
+        } else {
+          if (response.data.success) {
+            NotificationManager.success("Your reply has been posted");
+            window.location.reload();
+          } else {
+            NotificationManager.error(response.data.message);
+            navigate("/home");
+          }
         }
       }
     } catch (error) {

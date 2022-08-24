@@ -38,16 +38,20 @@ function NewPost() {
         "http://localhost:5000/new-post/add-doubt",
         { postDetails, token: localStorage.getItem("cch-user-token") }
       );
-      if (!response.data.verification) {
-        localStorage.removeItem("cch-user-token");
-        localStorage.removeItem("cch-user-username");
-        navigate("/login");
+      if (response.data.abusive_content) {
+        NotificationManager.error(response.data.message, "Couldn't post");
       } else {
-        if (response.data.success) {
-          NotificationManager.success(response.data.message);
-          navigate("/home");
+        if (!response.data.verification) {
+          localStorage.removeItem("cch-user-token");
+          localStorage.removeItem("cch-user-username");
+          navigate("/login");
         } else {
-          NotificationManager.error(response.data.message);
+          if (response.data.success) {
+            NotificationManager.success(response.data.message);
+            navigate("/home");
+          } else {
+            NotificationManager.error(response.data.message);
+          }
         }
       }
     } catch (error) {
