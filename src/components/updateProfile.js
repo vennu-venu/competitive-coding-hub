@@ -15,7 +15,7 @@ function UpdateProfile() {
     async function verifyTokenAndGetUser(tokenObj) {
       try {
         const response = await axios.post(
-          "http://localhost:5000/update-profile/verify-and-get-user",
+          "https://competitive-coding-hub.herokuapp.com/0/update-profile/verify-and-get-user",
           tokenObj
         );
         if (!response.data.verification) {
@@ -65,7 +65,7 @@ function UpdateProfile() {
     }
     try {
       const response = axios.post(
-        "http://localhost:5000/update-profile/change",
+        "https://competitive-coding-hub.herokuapp.com/0/update-profile/change",
         { ...fieldObj, email: user.email }
       );
       NotificationManager.success((await response).data.message);

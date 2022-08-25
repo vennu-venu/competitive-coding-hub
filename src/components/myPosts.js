@@ -18,7 +18,7 @@ function MyPosts() {
     async function verifyAndRetrieve(dataObj) {
       try {
         const response = await axios.post(
-          "http://localhost:5000/my-posts/verify-and-retrieve",
+          "https://competitive-coding-hub.herokuapp.com/0/my-posts/verify-and-retrieve",
           dataObj
         );
         if (!response.data.verification) {
