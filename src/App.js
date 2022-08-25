@@ -28,7 +28,7 @@ function App() {
     async function verifyToken(tokenObj) {
       try {
         const response = await axios.post(
-          "https://competitive-coding-hub.herokuapp.com/profile/verify",
+          "http://localhost:5000/profile/verify",
           tokenObj
         );
         if (response.data.success) {

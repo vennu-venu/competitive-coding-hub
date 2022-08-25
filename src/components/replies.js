@@ -66,7 +66,7 @@ function Replies() {
     };
     try {
       const response = await axios.post(
-        "https://competitive-coding-hub.herokuapp.com/posts/post-reply",
+        "http://localhost:5000/posts/post-reply",
         {
           token: localStorage.getItem("cch-user-token"),
           post_id: post_id,
@@ -100,7 +100,7 @@ function Replies() {
     async function verifyAndRetrieve(dataObj) {
       try {
         const response = await axios.post(
-          "https://competitive-coding-hub.herokuapp.com/posts/verify-and-retrieve",
+          "http://localhost:5000/posts/verify-and-retrieve",
           dataObj
         );
         if (!response.data.verification) {
