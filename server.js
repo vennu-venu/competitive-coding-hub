@@ -57,6 +57,11 @@ app.use((req, res, next) => {
   console.log({ message: `The path ${req.url} is invalid.` });
 });
 
+app.use(exp.static(path.resolve(__dirname, "build")));
+app.get("*", function (request, response) {
+  response.sendFile(path.resolve(__dirname, "build", "index.html"));
+});
+
 // Assigning port number to the Server
-const port = 5000;
+const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Server on port ${port}`));
