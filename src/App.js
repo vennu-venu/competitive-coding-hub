@@ -12,7 +12,7 @@ import SignOut from "./components/signOut";
 import MyPosts from "./components/myPosts";
 import Replies from "./components/replies";
 import NewPost from "./components/newPost";
-import { Routes, Route } from "react-router-dom";
+import { HashRouter, Route } from "react-router-dom";
 import { NotificationContainer } from "react-notifications";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -51,7 +51,7 @@ function App() {
   return (
     <div>
       {userEmail && <NavBar email={userEmail}/>}
-      <Routes>
+      <HashRouter>
         <Route path="/" element={<Start />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/register" element={<Register />}></Route>
@@ -64,7 +64,7 @@ function App() {
         <Route path="/my-posts" element={<MyPosts/>}></Route>
         <Route path="/posts/:post_id" element={<Replies/>}></Route>
         <Route path="/new-post" element={<NewPost/>}></Route>
-      </Routes>
+      </HashRouter>
       <NotificationContainer />
     </div>
   );
