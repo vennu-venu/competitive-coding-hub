@@ -9,10 +9,7 @@ app.use(cors());
 const path = require("path");
 
 if(process.env.NODE_ENV === "production") {
-  app.use(exp.static("build"));
-  app.get('*', (req, res) => {
-    req.sendFile(path.resolve(__dirname, 'build', 'index.html'));
-  })
+  app.use(express.static(path.resolve(__dirname, 'build')));
 }
 
 // Importing MogoClient
