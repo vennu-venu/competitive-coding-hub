@@ -43,7 +43,7 @@ function Register() {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:5000/register/create",
+        "https://competitive-coding-hub.herokuapp.com/register/create",
         user
       );
 

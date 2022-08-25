@@ -40,7 +40,7 @@ function EmailVerification() {
     setFinalEmail(email);
     try {
       const response = await axios.post(
-        "http://localhost:5000/verify-email/send-otp",
+        "https://competitive-coding-hub.herokuapp.com/verify-email/send-otp",
         { email: email }
       );
       if (response.data.success) {
@@ -61,7 +61,7 @@ function EmailVerification() {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:5000/verify-email/verify-otp",
+        "https://competitive-coding-hub.herokuapp.com/verify-email/verify-otp",
         { email: finalEmail, otp: otp }
       );
       if (response.data.success) {

@@ -53,9 +53,9 @@ app.use("/posts", postsApiRoute);
 app.use("/new-post", newPostApiRoute);
 
 // Handling unavailable path
-app.use((req, res, next) => {
-  console.log({ message: `The path ${req.url} is invalid.` });
-});
+// app.use((req, res, next) => {
+//   console.log({ message: `The path ${req.url} is invalid.` });
+// });
 
 app.use(exp.static(path.resolve(__dirname, "build")));
 app.get("*", function (request, response) {

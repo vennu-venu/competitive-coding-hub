@@ -15,7 +15,7 @@ function Profile() {
     async function verifyToken(tokenObj) {
       try {
         const response = await axios.post(
-          "http://localhost:5000/profile/verify",
+          "https://competitive-coding-hub.herokuapp.com/profile/verify",
           tokenObj
         );
         if (!response.data.success) {
@@ -33,7 +33,7 @@ function Profile() {
     async function getUserDetails() {
       try {
         const response = await axios.get(
-          `http://localhost:5000/profile/get-user/${username}`
+          `https://competitive-coding-hub.herokuapp.com/profile/get-user/${username}`
         );
         if (response.data.success) {
           setUser(response.data.user);
