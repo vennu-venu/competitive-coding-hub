@@ -36,7 +36,7 @@ function Login() {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "https://competitive-coding-hub.herokuapp.com/0/login/check",
+        "https://competitive-coding-hub.herokuapp.com/login/check",
         user
       );
       if (!response.data.success) {

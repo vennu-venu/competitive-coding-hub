@@ -35,7 +35,7 @@ function NewPost() {
     const postDetails = { ...post, isAnonymous: isAnonymous, time: Date.now() };
     try {
       const response = await axios.post(
-        "https://competitive-coding-hub.herokuapp.com/0/new-post/add-doubt",
+        "https://competitive-coding-hub.herokuapp.com/new-post/add-doubt",
         { postDetails, token: localStorage.getItem("cch-user-token") }
       );
       if (response.data.abusive_content) {
@@ -63,7 +63,7 @@ function NewPost() {
     async function verifyToken(tokenObj) {
       try {
         const response = await axios.post(
-          "https://competitive-coding-hub.herokuapp.com/0/new-post/verify",
+          "https://competitive-coding-hub.herokuapp.com/new-post/verify",
           tokenObj
         );
         if (!response.data.success) {

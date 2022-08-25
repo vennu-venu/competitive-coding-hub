@@ -13,7 +13,7 @@ function Home() {
     async function verifyToken(tokenObj) {
       try {
         const response = await axios.post(
-          "https://competitive-coding-hub.herokuapp.com/0/home/verify",
+          "https://competitive-coding-hub.herokuapp.com/home/verify",
           tokenObj
         );
         if(response.data.success) {
