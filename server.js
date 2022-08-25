@@ -8,10 +8,6 @@ app.use(cors());
 // Import the path module
 const path = require("path");
 
-if(process.env.NODE_ENV === "production") {
-  app.use(exp.static(path.resolve(__dirname, 'build')));
-}
-
 // Importing MogoClient
 const mc = require("mongodb").MongoClient;
 
@@ -62,5 +58,5 @@ app.use((req, res, next) => {
 });
 
 // Assigning port number to the Server
-const port = process.env.PORT || 5000;
+const port = 5000;
 app.listen(port, () => console.log(`Server on port ${port}`));
