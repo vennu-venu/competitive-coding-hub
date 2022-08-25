@@ -1,13 +1,19 @@
 // Creating Server
 const exp = require("express");
 const app = exp();
-const serverless = require('serverless-http');
 
 var cors = require("cors");
 app.use(cors());
 
 // Import the path module
 const path = require("path");
+
+if(process.env.NODE_ENV === "production") {
+  app.use(express.static("build"));
+  app.get('*', (req, res) => {
+    req.sendFile(path.resolve(__dirname, 'build', 'index.html'));
+  })
+}
 
 // Importing MogoClient
 const mc = require("mongodb").MongoClient;
@@ -59,6 +65,5 @@ app.use((req, res, next) => {
 });
 
 // Assigning port number to the Server
-// const port = 5000;
-// app.listen(port, () => console.log(`Server on port ${port}`));
-module.exports.handler = serverless(app);
+const port = process.env.PORT || 5000;
+app.listen(port, () => console.log(`Server on port ${port}`));
