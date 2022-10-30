@@ -5,7 +5,7 @@ const profileApiRoute = exp.Router();
 profileApiRoute.use(exp.json());
 profileApiRoute.post("/verify", async (req, res) => {
   token = req.body.token;
-  await jwt.verify(token, "cch", (error, decodedObj) => {
+  await jwt.verify(token, process.env.SECRETKEY, (error, decodedObj) => {
     if (error) {
       console.log(error);
       res.send({ message: "Error in Token Verification", success: false });

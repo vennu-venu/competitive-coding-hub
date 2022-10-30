@@ -6,9 +6,10 @@ import "react-notifications/lib/notifications.css";
 import { NotificationManager } from "react-notifications";
 import axios from "axios";
 
+
 function NewPost() {
   const navigate = useNavigate();
-
+  
   const [post, setPost] = useState({
     title: "",
     problem_link: "",
@@ -35,7 +36,7 @@ function NewPost() {
     const postDetails = { ...post, isAnonymous: isAnonymous, time: Date.now() };
     try {
       const response = await axios.post(
-        "https://competitive-coding-hub.herokuapp.com/new-post/add-doubt",
+        "http://localhost:5000/new-post/add-doubt",
         { postDetails, token: localStorage.getItem("cch-user-token") }
       );
       if (response.data.abusive_content) {

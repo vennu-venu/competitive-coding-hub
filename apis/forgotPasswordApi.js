@@ -87,7 +87,7 @@ forgotPasswordApiRoute.post("/verify-otp", async (req, res) => {
           { email: { $eq: email } },
           { $unset: { userOTP: "", OTPSentAt: "" } }
         );
-      let signedToken = await jwt.sign({ email: email }, "cch", {
+      let signedToken = await jwt.sign({ email: email }, process.env.SECRETKEY, {
         expiresIn: "10m",
       });
       res.send({
@@ -108,7 +108,7 @@ forgotPasswordApiRoute.post("/change-password", async (req, res) => {
   const password = req.body.password;
   let dbObj = req.app.locals.databaseObj;
   let hashpw = await bcrypt.hash(password, 5);
-  await jwt.verify(token, "cch", async (error, decodedObj) => {
+  await jwt.verify(token, process.env.SECRETKEY, async (error, decodedObj) => {
     if (error) {
       console.log(error);
       res.send({ message: "Password could not be changed", success: false });

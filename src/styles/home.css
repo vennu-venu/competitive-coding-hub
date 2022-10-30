@@ -82,6 +82,16 @@
   text-align: center;
   margin-top: 50px;
 }
+.loading {
+  width: 100vw;
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loading img {
+  width: 5%;
+}
 
 @media (max-width: 768px){
   .home-top-row {

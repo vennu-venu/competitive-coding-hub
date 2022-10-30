@@ -5,7 +5,7 @@ const updateProfileApiRoute = exp.Router();
 updateProfileApiRoute.use(exp.json());
 updateProfileApiRoute.post("/verify-and-get-user", async (req, res) => {
   const token = req.body.token;
-  await jwt.verify(token, "cch", async (error, decodedObj) => {
+  await jwt.verify(token, process.env.SECRETKEY, async (error, decodedObj) => {
     if (error) {
       res.send({ message: "Error in Token Verification", verification: false });
     } else {

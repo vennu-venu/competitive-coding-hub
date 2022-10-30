@@ -3,13 +3,12 @@ import { Link } from "react-router-dom";
 
 function Start() {
   return (
-    <div>
+    <div className="w-100">
       <div className="front-page l-1">
         <div className="head-title">
           <p>
-            <span></span>
             <span className="custom-letter">C</span>ompetitive
-            <br />
+            <br/>
             <span className="custom-letter">C</span>oding{" "}
             <span className="custom-letter">H</span>ub
           </p>
@@ -19,9 +18,14 @@ function Start() {
             Platform which can be exclusively used as a means to share the
             doubts related to programming.
           </p>
-          <Link className="login-link" to="/login">
-            <button className="login-btn">Get Started</button>
-          </Link>
+          <div className="start-btns">
+            <Link className="login-link" to="/login">
+              <button className="login-btn">Get Started</button>
+            </Link>
+            <Link className="login-link" to="/admin-login">
+              <button className="login-btn">Continue as Admin</button>
+            </Link>
+          </div>
         </div>
       </div>
       <div className="quote">

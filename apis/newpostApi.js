@@ -1,12 +1,21 @@
 const exp = require("express");
 const jwt = require("jsonwebtoken");
 const Filter = require("bad-words");
+const nodemailer = require("nodemailer");
+
+const transporter = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    user: process.env.CCH_EMAIL,
+    pass: process.env.CCH_PASS,
+  },
+});
 
 const newPostApiRoute = exp.Router();
 newPostApiRoute.use(exp.json());
 newPostApiRoute.post("/verify", async (req, res) => {
   const token = req.body.token;
-  await jwt.verify(token, "cch", (error, decodedObj) => {
+  await jwt.verify(token, process.env.SECRETKEY, (error, decodedObj) => {
     if (error) {
       console.log(error);
       res.send({ message: "Error in Token Verification", success: false });
@@ -35,7 +44,7 @@ newPostApiRoute.post("/add-doubt", async (req, res) => {
       abusive_content: true,
     });
   } else {
-    await jwt.verify(token, "cch", async (error, decodedObj) => {
+    await jwt.verify(token, process.env.SECRETKEY, async (error, decodedObj) => {
       if (error) {
         console.log(error);
         res.send({
@@ -46,6 +55,29 @@ newPostApiRoute.post("/add-doubt", async (req, res) => {
         try {
           if (postData.isAnonymous) {
             await dbObj.collection("posts").insertOne(postData);
+            let volunteers = await dbObj.collection("volunteers").find().toArray();
+            for(let volunteer of volunteers) {
+              var mailOptions = {
+                from: "competitive.coding.hub@gmail.com",
+                to: volunteer.email,
+                subject: "Competitive Coding Hub | New Post on Competitive Coding Hub",
+                text:
+                  "Hello Volunteer" +
+                  "\n\nNew Anonymous Post on Competitive Coding Hub\n\n" +
+                  postData.title +
+                  "\n\n" +
+                  postData.problem_desc +
+                  "\n\n" +
+                  postData.code + 
+                  "\n\n#ask  #learn  #code",
+              }; 
+
+              transporter.sendMail(mailOptions, async function (error, info) {
+                if (error) {
+                  console.log("Error in sending OTP: ", error);
+                }
+              });
+            }
             res.send({
               message: "Anonymous doubt posted",
               verification: true,
@@ -74,6 +106,30 @@ newPostApiRoute.post("/add-doubt", async (req, res) => {
                 user_email: decodedObj.email,
               };
               await dbObj.collection("posts").insertOne(postData);
+              let volunteers = await dbObj.collection("volunteers").find().toArray();
+            
+            for(let volunteer of volunteers) {
+              var mailOptions = {
+                from: "competitive.coding.hub@gmail.com",
+                to: volunteer.email,
+                subject: "Competitive Coding Hub | New Post on Competitive Coding Hub",
+                text:
+                  "Hello Volunteer" +
+                  "\n\nNew Post on Competitive Coding Hub by " + obj.first_name + " " + obj.last_name + "\n\n" +
+                  postData.title +
+                  "\n\n" +
+                  postData.problem_desc +
+                  "\n\n" +
+                  postData.code + 
+                  "\n\n#ask  #learn  #code",
+              }; 
+
+              transporter.sendMail(mailOptions, async function (error, info) {
+                if (error) {
+                  console.log("Error in sending OTP: ", error);
+                }
+              });
+            }
               res.send({
                 message: "Doubt posted",
                 verification: true,

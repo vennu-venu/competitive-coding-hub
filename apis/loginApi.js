@@ -23,7 +23,7 @@ loginApiRoute.post("/check", async (req, res) => {
       if (result) {
         let signedToken = await jwt.sign(
           { email: userCredentialDetails.email },
-          "cch",
+          process.env.SECRETKEY,
           { expiresIn: "4h" }
         );
         res.send({

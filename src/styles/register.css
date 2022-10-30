@@ -110,3 +110,65 @@
   margin-left: 10px;
   font-style: italic;
 }
+
+
+@media (max-width: 900px) {
+  .register-main {
+    font-size: 0.9em;
+  }
+  .register-left {
+    width: 50%;
+  }
+  .register-right {
+    width: 50%;
+  }
+  .register-code {
+    padding: 20px;
+    font-size: 0.9em;
+  }
+  .register-code:hover {
+    padding: 30px;
+    transition-duration: 00.25s;
+  }
+}
+
+@media (max-width: 700px) {
+  .register-main {
+    flex-direction: column;
+    padding-right: 10px;
+  }
+  .register-left {
+    display: none;
+  }
+  .register-right {
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .register-title {
+    font-size: 3rem;
+    font-weight: 400;
+    text-align: center;
+  }
+  .register-form {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .register-inp, .register-button, .opt-button {
+    width: 80vw;
+    margin: auto;
+  }
+  .opt-button {
+    margin-top: 20px;
+  }
+  .register-had-account {
+    width: 80vw;
+    margin: 20px auto;
+  }
+}

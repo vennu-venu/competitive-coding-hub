@@ -40,6 +40,7 @@ const updateProfileApiRoute = require("./apis/updateProfileApi");
 const myPostsApiRoute = require("./apis/myPostsApi");
 const postsApiRoute = require("./apis/postsApi");
 const newPostApiRoute = require("./apis/newpostApi");
+const adminApiRoute = require("./apis/adminApi");
 
 app.use("/login", loginApiRoute);
 app.use("/register", registerApiRoute);
@@ -51,15 +52,16 @@ app.use("/update-profile", updateProfileApiRoute);
 app.use("/my-posts", myPostsApiRoute);
 app.use("/posts", postsApiRoute);
 app.use("/new-post", newPostApiRoute);
-
-// Handling unavailable path
-// app.use((req, res, next) => {
-//   console.log({ message: `The path ${req.url} is invalid.` });
-// });
+app.use("/admin", adminApiRoute);
 
 app.use(exp.static(path.resolve(__dirname, "build")));
 app.get("*", function (request, response) {
   response.sendFile(path.resolve(__dirname, "build", "index.html"));
+});
+
+// Handling unavailable path
+app.use((req, res, next) => {
+  console.log({ message: `The path ${req.url} is invalid.` });
 });
 
 // Assigning port number to the Server

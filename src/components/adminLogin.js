@@ -1,16 +1,16 @@
 import "../styles/login.css";
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "react-notifications/lib/notifications.css";
 import { NotificationManager } from "react-notifications";
 import axios from "axios";
 
-function Login() {
+function AdminLogin() {
   const navigate = useNavigate();
 
   useEffect(() => {
     if (localStorage.getItem("cch-user-token") != null) {
-      navigate("/home");
+      navigate("/volunteers");
     }
   }, [navigate]);
 
@@ -22,7 +22,7 @@ function Login() {
   let code6 = "}";
 
   const [user, setUser] = useState({
-    email: "",
+    username: "",
     password: "",
   });
 
@@ -36,7 +36,7 @@ function Login() {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "https://competitive-coding-hub.herokuapp.com/login/check",
+        "http://localhost:5000/admin/login",
         user
       );
       if (!response.data.success) {
@@ -46,13 +46,10 @@ function Login() {
           4000
         );
       } else {
-        NotificationManager.success(
-          response.data.message,
-          "Welcome " + response.data.username
-        );
+        NotificationManager.success(response.data.message, "Welcome " + response.data.username);
         localStorage.setItem("cch-user-token", response.data.jwt);
         localStorage.setItem("cch-user-username", response.data.username);
-        navigate("/home");
+        navigate("/volunteers");
       }
     } catch (error) {
       console.log("Error in Login: ", error);
@@ -73,16 +70,16 @@ function Login() {
       </div>
       <div className="login-right">
         <h1 className="login-title">
-          <span className="login-custom-letter">L</span>ogin
+          <span className="login-custom-letter">A</span>dmin <span className="login-custom-letter">L</span>ogin
         </h1>
 
         <form className="login-form" onSubmit={handleSubmit}>
           <input
             className="login-inp"
             type="text"
-            name="email"
-            placeholder="Email"
-            value={user.email}
+            name="username"
+            placeholder="Username"
+            value={user.username}
             onChange={handleInput}
             required
           />
@@ -99,26 +96,9 @@ function Login() {
             Login
           </button>
         </form>
-
-        <div className="user-opt">
-          <p>
-            New to Competitive Coding Hub ?
-            <Link className="sign-up-opt" to="/register">
-              Register
-            </Link>
-          </p>
-        </div>
-
-        <Link className="login-link-text" to="/verify-email">
-          <button className="opt-button">Verify Email</button>
-        </Link>
-
-        <Link className="login-link-text" to="/forgot-password">
-          <button className="opt-button">Forgot Password ? </button>
-        </Link>
       </div>
     </div>
   );
 }
 
-export default Login;
+export default AdminLogin;

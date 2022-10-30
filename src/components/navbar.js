@@ -23,7 +23,7 @@ function NavBar() {
       },
       {
         text: 'Sign out',
-        link: 'sign-out'
+        link: '/sign-out'
       }
     ],
     logo: {

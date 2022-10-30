@@ -3,6 +3,7 @@ import React from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import logo from '../images/giphy.gif';
 
 function Profile() {
   const navigate = useNavigate();
@@ -10,6 +11,7 @@ function Profile() {
   const [email, setEmail] = useState("");
   const [user, setUser] = useState({});
   const [isAvailable, setIsAvailable] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     async function verifyToken(tokenObj) {
@@ -38,7 +40,8 @@ function Profile() {
         if (response.data.success) {
           setUser(response.data.user);
           setIsAvailable(true);
-        } 
+        }
+        setIsLoading(false);
       } catch (error) {
         console.log("Error in getting user data: ", error);
       }
@@ -174,6 +177,12 @@ function Profile() {
             )}
           </div>
         </div>
+      ) : isLoading ? (
+        <>
+          <div className="loading">
+            <img src={logo} alt="loading..." />
+          </div>
+        </>
       ) : (
         <div className="profile-user-not-found">
           <div>

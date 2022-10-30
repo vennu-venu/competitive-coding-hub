@@ -7,6 +7,7 @@ import { NotificationManager } from "react-notifications";
 import { GoSearch } from "react-icons/go";
 import Post from "./post";
 import axios from "axios";
+import logo from '../images/giphy.gif';
 
 function MyPosts() {
   const navigate = useNavigate();
@@ -41,7 +42,7 @@ function MyPosts() {
     } else {
       const dataObj = {
         token: localStorage.getItem("cch-user-token"),
-        username: localStorage.getItem("cch-user-username")
+        username: localStorage.getItem("cch-user-username"),
       };
       verifyAndRetrieve(dataObj);
     }
@@ -50,9 +51,7 @@ function MyPosts() {
   const handleSearchItem = (e) => {
     const searchItem = e.target.value;
     let res = data.posts.filter((post) => {
-      return (
-        post.title.toLowerCase().search(searchItem.toLowerCase()) !== -1
-      );
+      return post.title.toLowerCase().search(searchItem.toLowerCase()) !== -1;
     });
     if (e.target.value.length) {
       setFilterData(res);
@@ -63,7 +62,7 @@ function MyPosts() {
 
   return (
     <>
-      {data && (
+      {data ? (
         <>
           <div className="home-top-row">
             <div className="home-left">
@@ -73,7 +72,9 @@ function MyPosts() {
               <p className="home-post">Posts</p>
             </div>
             <div className="home-right">
-              <p className="home-greet"><span className="profile-custom-letter">M</span>y Posts</p>
+              <p className="home-greet">
+                <span className="profile-custom-letter">M</span>y Posts
+              </p>
               <div>
                 <GoSearch className="home-search-icon" />
                 <input
@@ -91,7 +92,7 @@ function MyPosts() {
             {filterData.length > 0 ? (
               <div className="home-cards">
                 {filterData.map((post) => {
-                  return <Post key={post._id} post={post} isMyPost={true}/>;
+                  return <Post key={post._id} post={post} isMyPost={true} />;
                 })}
               </div>
             ) : (
@@ -101,6 +102,10 @@ function MyPosts() {
             )}
           </div>
         </>
+      ) : (
+        <div className="loading">
+          <img src={logo} alt="loading..." />
+        </div>
       )}
     </>
   );

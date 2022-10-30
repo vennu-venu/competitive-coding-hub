@@ -6,7 +6,7 @@ homeApiRoute.use(exp.json());
 homeApiRoute.post("/verify-and-retrieve", async (req, res) => {
   let dbObj = req.app.locals.databaseObj;
   const token = req.body.token;
-  await jwt.verify(token, "cch", async (error, decodedObj) => {
+  await jwt.verify(token, process.env.SECRETKEY, async (error, decodedObj) => {
     if (error) {
       res.send({
         message: "Error in Token Verification",

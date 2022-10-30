@@ -7,6 +7,7 @@ import { NotificationManager } from "react-notifications";
 import { GoSearch } from "react-icons/go";
 import Post from "./post";
 import axios from "axios";
+import logo from '../images/giphy.gif';
 
 function Home() {
   const navigate = useNavigate();
@@ -63,7 +64,7 @@ function Home() {
 
   return (
     <>
-      {data && (
+      {data ? (
         <>
           <div className="home-top-row">
             <div className="home-left">
@@ -101,7 +102,9 @@ function Home() {
             )}
           </div>
         </>
-      )}
+      ): <div className="loading">
+          <img src={logo} alt="loading..." />
+        </div>}
     </>
   );
 }

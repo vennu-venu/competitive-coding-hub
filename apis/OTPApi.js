@@ -86,7 +86,7 @@ OTPApiRoute.post("/verify-otp", async (req, res) => {
           { email: { $eq: email } },
           { $unset: { userOTP: "", OTPSentAt: "" } }
         );
-      let signedToken = await jwt.sign({ email: email }, "cch", {
+      let signedToken = await jwt.sign({ email: email }, process.env.SECRETKEY, {
         expiresIn: "4h",
       });
       res.send({

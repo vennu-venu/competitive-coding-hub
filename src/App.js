@@ -17,6 +17,8 @@ import { NotificationContainer } from "react-notifications";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import AdminLogin from "./components/adminLogin";
+import Volunteers from "./components/volunteers";
 
 function App() {
 
@@ -32,7 +34,9 @@ function App() {
           tokenObj
         );
         if (response.data.success) {
-          setUserEmail(response.data.email);
+          if(!response.data.role) {
+            setUserEmail(response.data.email);
+          }
         } else {
           localStorage.removeItem("cch-user-token");
         }
@@ -54,6 +58,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Start />}></Route>
         <Route path="/login" element={<Login />}></Route>
+        <Route path="/admin-login" element={<AdminLogin />}></Route>
         <Route path="/register" element={<Register />}></Route>
         <Route path="/home" element={<Home />}></Route>
         <Route path="/verify-email" element={<EmailVerification/>}></Route>
@@ -64,6 +69,7 @@ function App() {
         <Route path="/my-posts" element={<MyPosts/>}></Route>
         <Route path="/posts/:post_id" element={<Replies/>}></Route>
         <Route path="/new-post" element={<NewPost/>}></Route>
+        <Route path="/volunteers" element={<Volunteers/>}></Route>
       </Routes>
       <NotificationContainer />
     </div>
