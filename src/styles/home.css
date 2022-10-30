@@ -112,4 +112,7 @@
   .home-search-inp:focus {
     width: 60%;
   }
+  .loading img{
+    width: 20%;
+  }
 }
