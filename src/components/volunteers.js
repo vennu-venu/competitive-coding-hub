@@ -15,16 +15,14 @@ function Volunteers() {
     setEmail(e.target.value);
   };
 
-  function validateEmail(email) {
-    if (
-      /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(
-       email
-      )
-    ) {
-      return true;
+  const validateEmail = (email) => {
+    if(email.split('@').length === 2) {
+      if(email.split('@')[1].split('.').length === 2) {
+        return true;
+      }
     }
     return false;
-  }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
