@@ -29,7 +29,7 @@ function Volunteers() {
     if(validateEmail(email)) {
       try {
         const response = await axios.post(
-          "http://localhost:5000/admin/add-volunteer",{ email },
+          "https://competitive-coding-hub.herokuapp.com/admin/add-volunteer",{ email },
           {
             headers: { authorization: localStorage.getItem("cch-user-token") },
           }
@@ -55,7 +55,7 @@ function Volunteers() {
   async function getData(token) {
     try {
       const response = await axios.get(
-        "http://localhost:5000/admin/get-volunteers",
+        "https://competitive-coding-hub.herokuapp.com/admin/get-volunteers",
         {
           headers: { authorization: token },
         }
@@ -71,7 +71,7 @@ function Volunteers() {
   useEffect(() => {
     async function verifyToken(token) {
       try {
-        const response = await axios.get("http://localhost:5000/admin/verify", {
+        const response = await axios.get("https://competitive-coding-hub.herokuapp.com/admin/verify", {
           headers: { authorization: token },
         });
         if (response.data.success) {
@@ -100,7 +100,7 @@ function Volunteers() {
 
   const removeVolunteer = async (id) => {
     try {
-      const url = "http://localhost:5000/admin/remove-volunteer/" + id;
+      const url = "https://competitive-coding-hub.herokuapp.com/admin/remove-volunteer/" + id;
       const response = await axios.delete(
         url,
         {

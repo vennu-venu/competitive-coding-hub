@@ -36,7 +36,7 @@ function AdminLogin() {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:5000/admin/login",
+        "https://competitive-coding-hub.herokuapp.com/admin/login",
         user
       );
       if (!response.data.success) {
