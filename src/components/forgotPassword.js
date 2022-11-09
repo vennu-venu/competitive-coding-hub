@@ -58,7 +58,7 @@ function ForgotPassword() {
     setFinalEmail(email);
     try {
       const response = await axios.post(
-        "http://localhost:5000/forgot-password/send-otp",
+        "https://competitive-coding-hub.herokuapp.com/forgot-password/send-otp",
         { email: email }
       );
       if (response.data.success) {
@@ -79,7 +79,7 @@ function ForgotPassword() {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:5000/forgot-password/verify-otp",
+        "https://competitive-coding-hub.herokuapp.com/forgot-password/verify-otp",
         { email: finalEmail, otp: otp }
       );
       if (response.data.success) {
