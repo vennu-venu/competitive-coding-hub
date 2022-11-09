@@ -101,7 +101,7 @@ function ForgotPassword() {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:5000/forgot-password/change-password",
+        "https://competitive-coding-hub.herokuapp.com/forgot-password/change-password",
         { password: password, confirmPassword: confirmPassword, token: token }
       );
       if(response.data.success) {
